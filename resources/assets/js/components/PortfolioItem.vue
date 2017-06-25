@@ -1,6 +1,6 @@
 <template>
     <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
+        <div class="thumbnail thumbnail-height">
             <img :src="image">
             <div class="caption">
                 <h5 v-text="title"></h5>
@@ -28,3 +28,8 @@
         }
     }
 </script>
+<style>
+    .thumbnail-height{
+        height: 225px;
+    }
+</style>
