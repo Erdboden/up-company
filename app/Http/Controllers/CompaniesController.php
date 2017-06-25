@@ -56,4 +56,13 @@ class CompaniesController extends Controller
         return redirect($company->path());
 //            ->with('flash', 'Your thread has been published.');
     }
+
+    public function destroy(Company $company)
+    {
+        $company->delete();
+        if (request()->expectsJson()) {
+            return response(['status' => 'company deleted']);
+        }
+        return back();
+    }
 }

@@ -26,4 +26,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'role_id'
     ];
+//    protected $with = ['companies'];
+
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
+    public function companies()
+    {
+        return $this->hasMany(Company::class);
+    }
+
+    public function getUserCompaniesAttribute()
+    {
+        return $this->companies()->where('user_id', auth()->id())->get();
+    }
+
 }

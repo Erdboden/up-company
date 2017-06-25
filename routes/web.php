@@ -23,5 +23,8 @@ Route::get('/companies', 'CompaniesController@index');
 Route::get('/companies/{domain}/{company}', 'CompaniesController@show');
 Route::get('/companies/create', 'CompaniesController@create');
 Route::post('/companies', 'CompaniesController@store');
+Route::delete('/companies/{company}', 'CompaniesController@destroy');
 
 Route::get('/companies/{domain}/{company}/portfolio', 'PortfolioController@index');
+
+Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');

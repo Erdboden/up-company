@@ -3,7 +3,8 @@
         <div class="navbar-header">
 
             <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#app-navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -28,15 +29,15 @@
                 </li>
                 <li><a href="/companies/create">Register a company</a></li>
                 {{--<li class="dropdown">--}}
-                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"--}}
-                       {{--aria-expanded="false">Channels <span class="caret"></span></a>--}}
-                    {{--<ul class="dropdown-menu">--}}
+                {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"--}}
+                {{--aria-expanded="false">Channels <span class="caret"></span></a>--}}
+                {{--<ul class="dropdown-menu">--}}
 
-                        {{--@foreach($channels as $channel)--}}
-                            {{--<li><a href="/threads/{{$channel->slug}}">{{$channel->name}}</a></li>--}}
-                        {{--@endforeach--}}
+                {{--@foreach($channels as $channel)--}}
+                {{--<li><a href="/threads/{{$channel->slug}}">{{$channel->name}}</a></li>--}}
+                {{--@endforeach--}}
 
-                    {{--</ul>--}}
+                {{--</ul>--}}
                 {{--</li>--}}
 
             </ul>
@@ -55,13 +56,17 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+                                <a href="{{route('profile', Auth::user())}}">My profile</a></li>
+                            <li>
+                            <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     Logout
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </li>

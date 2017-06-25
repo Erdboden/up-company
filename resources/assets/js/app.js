@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 
 Vue.component('company-view', require('./pages/Company.vue'));
+Vue.component('profile-view', require('./pages/Profile.vue'));
 const app = new Vue({
     el: '#app'
 });
