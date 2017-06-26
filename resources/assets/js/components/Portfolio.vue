@@ -16,11 +16,12 @@
 <script>
     import PortfolioItem from './PortfolioItem.vue';
     import PortfolioItemDetails from './PortfolioItemDetails.vue';
-    import collection from '../mixins/collection';
+    import collection from '../mixins/Collection.js';
     export default{
         props: ['data'],
         components: {PortfolioItem, PortfolioItemDetails},
         mixins: [collection],
+
 
         created(){
             this.fetch();

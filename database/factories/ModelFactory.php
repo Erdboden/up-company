@@ -13,6 +13,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\Role;
+use App\Score;
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
@@ -44,6 +45,7 @@ $factory->define(App\Company::class, function ($faker) {
         'domain_id' => function () {
             return factory('App\Domain')->create()->id;
         }
+
     ];
 });
 $factory->define(Role::class, function () {
@@ -51,6 +53,14 @@ $factory->define(Role::class, function () {
         'name' => 'user'
     ];
 });
+
+$factory->define(Score::class, function () {
+    return [
+        'score_number' => 5,
+        'score_text' => 'Best'
+    ];
+});
+
 $factory->define(App\Domain::class, function ($faker) {
     $domainName = $faker->word;
     return [
@@ -60,10 +70,23 @@ $factory->define(App\Domain::class, function ($faker) {
 });
 
 $factory->define(App\Portfolio::class, function ($faker) {
+
     return [
         'title' => $faker->text($maxNbChars = 50),
         'body' => $faker->paragraph,
         'image_path' => $faker->imageUrl($width = 100, $height = 100),
+        'company_id' => function ($i = 0) {
+            return \App\Company::find(++$i);
+        }
+
+    ];
+});
+$factory->define(App\Review::class, function ($faker) {
+    return [
+        'body' => $faker->paragraph,
+        'score_id' => function () {
+            return \App\Score::find(1);
+        },
         'company_id' => function () {
             return factory('App\Company')->create()->id;
         }

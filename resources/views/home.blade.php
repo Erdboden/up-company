@@ -10,7 +10,7 @@
                     <div class="panel-body">
                         You are logged in!
 
-                        <p class="text-center"><a href="/companies">Start viewing companies</a></p>
+                        <p class="text-center"><a href="/domains">Start viewing companies</a></p>
                     </div>
                 </div>
             </div>

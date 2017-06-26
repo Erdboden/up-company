@@ -28,6 +28,7 @@
                     </ul>
                 </li>
                 <li><a href="/companies/create">Register a company</a></li>
+                <li><a href="/domains">Categories</a></li>
                 {{--<li class="dropdown">--}}
                 {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"--}}
                 {{--aria-expanded="false">Channels <span class="caret"></span></a>--}}

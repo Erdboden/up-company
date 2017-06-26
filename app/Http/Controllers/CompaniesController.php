@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Domain;
 use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
@@ -16,11 +17,19 @@ class CompaniesController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index()
+    public function index(Domain $domain)
     {
-        $companies = Company::latest()->get();
+
+        $companies = $this->getCompanies($domain);
+//        $companies = Company::latest();
+
+        if (request()->wantsJson()) {
+            return $companies;
+        }
+
         return view('companies.index', compact('companies'));
     }
+
 
     public function show($domain, Company $company)
     {
@@ -64,5 +73,42 @@ class CompaniesController extends Controller
             return response(['status' => 'company deleted']);
         }
         return back();
+    }
+
+    public function update(Company $company)
+    {
+//        $this->authorize('update', $reply);
+
+        $this->validate(request(), [
+            'name' => 'required',
+            'domain' => 'required|exists:domains,id',
+            'country' => 'required',
+            'city' => 'required',
+            'street' => 'required',
+            'slogan' => 'required'
+        ]);
+
+
+        $company->update([
+            'name' => request('name'),
+            'slug' => request('slug'),
+            'domain_id' => request('domain'),
+            'country' => request('country'),
+            'city' => request('city'),
+            'street' => request('street'),
+            'main_image_path' => request('image') ?: 'http://lorempixel.com/100/100/',
+            'slogan' => request('slogan'),
+        ]);
+    }
+
+    protected function getCompanies(Domain $domain)
+    {
+        $companies = Company::latest();
+
+        if ($domain->exists) {
+            $companies->where('domain_id', $domain->id);
+        }
+
+        return $companies->get();
     }
 }
