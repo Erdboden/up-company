@@ -43,4 +43,14 @@ class User extends Authenticatable
         return $this->companies()->where('user_id', auth()->id())->get();
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
 }

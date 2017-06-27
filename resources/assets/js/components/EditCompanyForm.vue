@@ -2,9 +2,13 @@
     <div class="row">
         <div class="form-group">
             <label>Choose a domain:</label>
-            <select v-model="domain" class="form-control" required>
+            <select class="form-control" v-model="selectedDomain" required>
                 <option v-for="(item, index) in domains" :value="item.id">{{item.name}}</option>
             </select>
+        </div>
+        <div class="form-group">
+            <button v-for="(d, i) in domain" class="btn btn-info btn-xs mr-1" v-text="d.name"
+                    @click="deleteDomain(d.id, i)"></button>
         </div>
         <div class="form-group">
             <label>Company name:</label>
@@ -41,11 +45,14 @@
 
 </template>
 <script>
+    import collection from '../mixins/Collection.js';
     export default{
         props: ['data', 'domains'],
+        mixins: [collection],
         data(){
             return {
-                domain: this.data.domain_id,
+                selectedDomain: '',
+                domain: this.data.domain,
                 name: this.data.name,
                 slug: this.data.slug,
                 country: this.data.country,
@@ -55,13 +62,16 @@
                 slogan: this.data.slogan
             }
         },
+        created(){
+            this.filter();
+        },
         methods: {
             update(){
-                if(this.name != this.data.name){
-                    this.slug=this.name.split(' ').join('-');
+                if (this.name != this.data.name) {
+                    this.slug = this.name.split(' ').join('-');
                 }
                 axios.patch('/companies/' + this.data.slug, {
-                    domain: this.domain,
+                    selectedDomain: this.selectedDomain,
                     name: this.name,
                     slug: this.slug,
                     country: this.country,
@@ -70,10 +80,27 @@
                     image: this.image,
                     slogan: this.slogan
                 });
+
                 this.collapse();
+            },
+            deleteDomain(id, index){
+                alert(id);
+                axios.patch('/companies/' + this.data.slug + '/domain', {
+                    domain: id
+                });
+                this.domain.splice(index, 1);
             },
             collapse(){
                 this.$emit('editing');
+            },
+            filter(){
+
+//                this.domains.forEach(function (element) {
+                    this.domain.forEach(function (element) {
+
+                    });
+//                    console.log(element);
+//                });
             }
         }
 

@@ -9,6 +9,7 @@ class Company extends Model
 
     protected $guarded = [];
     protected $with = ['owner', 'domain'];
+
     public function getRouteKeyName()
     {
         return 'slug';
@@ -16,7 +17,7 @@ class Company extends Model
 
     public function path()
     {
-        return "/companies/{$this->domain->slug}/{$this->slug}";
+        return "/companies/{$this->slug}";
     }
 
     public function owner()
@@ -26,11 +27,16 @@ class Company extends Model
 
     public function domain()
     {
-        return $this->belongsTo(Domain::class);
+        return $this->belongsToMany(Domain::class);
     }
 
     public function portfolio()
     {
         return $this->hasMany(Portfolio::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }

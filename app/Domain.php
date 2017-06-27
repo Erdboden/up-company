@@ -15,7 +15,12 @@ class Domain extends Model
 
     public function path()
     {
-        return "/companies/{$this->slug}";
+        return "/domains/{$this->slug}";
+    }
+
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class);
     }
 
 }

@@ -20,15 +20,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/companies', 'CompaniesController@index');
-Route::get('/companies/{domain}/{company}', 'CompaniesController@show');
 Route::get('/companies/create', 'CompaniesController@create');
-Route::get('companies/{domain}', 'CompaniesController@index');
+Route::get('/companies/{company}', 'CompaniesController@show');
 Route::post('/companies', 'CompaniesController@store');
 Route::delete('/companies/{company}', 'CompaniesController@destroy');
 Route::patch('/companies/{company}', 'CompaniesController@update');
+Route::patch('/companies/{company}/domain', 'CompaniesController@destroyDomain');
 
 Route::get('/domains', 'DomainsController@index');
+Route::get('domains/{domain}', 'CompaniesController@index');
 
-Route::get('/companies/{domain}/{company}/portfolio', 'PortfolioController@index');
+
+Route::get('/companies/{company}/portfolio', 'PortfolioController@index');
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');

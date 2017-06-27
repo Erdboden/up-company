@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Portfolio extends Model
 {
     protected $guarded = [];
-    //
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

@@ -12,7 +12,7 @@ class PortfolioController extends Controller
         $this->middleware('auth', ['except' => 'index']);
     }
 
-    public function index($domainId, Company $company)
+    public function index(Company $company)
     {
         return $company->portfolio()->get();
     }

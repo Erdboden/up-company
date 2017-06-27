@@ -2,7 +2,9 @@
     <tbody>
     <tr :id="'company-'+id">
         <th v-text="title"></th>
-        <th v-text="domain"></th>
+        <th>
+            <div v-for="(d, i) in domain" v-text="d.name"></div>
+        </th>
         <th v-text="country"></th>
         <th v-text="city"></th>
         <th v-text="street"></th>
@@ -26,7 +28,7 @@
                 id: this.data.id,
                 title: this.data.name,
                 slug: this.data.slug,
-                domain: this.data.domain.name,
+                domain: this.data.domain,
                 country: this.data.country,
                 city: this.data.city,
                 street: this.data.street,

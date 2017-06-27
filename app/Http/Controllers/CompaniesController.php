@@ -19,7 +19,7 @@ class CompaniesController extends Controller
 
     public function index(Domain $domain)
     {
-
+//        return $domain->companies;
         $companies = $this->getCompanies($domain);
 //        $companies = Company::latest();
 
@@ -31,7 +31,7 @@ class CompaniesController extends Controller
     }
 
 
-    public function show($domain, Company $company)
+    public function show(Company $company)
     {
         return view('companies.show', compact('company'));
     }
@@ -59,11 +59,11 @@ class CompaniesController extends Controller
             'street' => request('street'),
             'slogan' => request('slogan'),
             'user_id' => auth()->id(),
-            'domain_id' => request('domain_id'),
+//            'domain_id' => request('domain_id'),
             'main_image_path' => request('main_image_path') ?: 'http://lorempixel.com/100/100/'
         ]);
+        $company->domain()->attach(request('domain_id'));
         return redirect($company->path());
-//            ->with('flash', 'Your thread has been published.');
     }
 
     public function destroy(Company $company)
@@ -81,7 +81,7 @@ class CompaniesController extends Controller
 
         $this->validate(request(), [
             'name' => 'required',
-            'domain' => 'required|exists:domains,id',
+//            'selectedDomain' => 'required|exists:domains,id',
             'country' => 'required',
             'city' => 'required',
             'street' => 'required',
@@ -92,22 +92,31 @@ class CompaniesController extends Controller
         $company->update([
             'name' => request('name'),
             'slug' => request('slug'),
-            'domain_id' => request('domain'),
+//            'domain_id' => request('domain'),
             'country' => request('country'),
             'city' => request('city'),
             'street' => request('street'),
             'main_image_path' => request('image') ?: 'http://lorempixel.com/100/100/',
             'slogan' => request('slogan'),
         ]);
+        $company->domain()->attach(request('selectedDomain'));
+    }
+
+    public function destroyDomain(Company $company)
+    {
+        return $company->domain()->detach(request('domain'));
+
     }
 
     protected function getCompanies(Domain $domain)
     {
-        $companies = Company::latest();
 
+        $companies = Company::latest();
         if ($domain->exists) {
-            $companies->where('domain_id', $domain->id);
+            $companies = $domain->companies;
+            return $companies;
         }
+
 
         return $companies->get();
     }

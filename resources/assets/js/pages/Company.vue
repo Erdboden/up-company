@@ -28,8 +28,13 @@
                         <ul>
                             <li>Origin: <b v-text="city"></b>, <b v-text="country"></b>, <b v-text="street"></b>
                             </li>
-                            <li>Owner:<b v-text="owner"></b></li>
-                            <li>Area of activity: <b v-text="domain"></b></li>
+                            <li>Owner:<b v-text="owner">{</b></li>
+                            <li>Area of activity:
+                                <ul>
+                                    <li v-for="(domain, index) in data.domain" :key="domain.id">
+                                        <b v-text="domain.name"></b></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -52,8 +57,12 @@
                 country: this.data.country,
                 street: this.data.street,
                 owner: this.data.owner.name,
-                domain: this.data.domain.name
+
+                domain: this.data.domain
             }
+        },
+        mounted(){
+//            alert(this.data.domain);
         }
     }
 </script>

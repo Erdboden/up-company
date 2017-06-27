@@ -20,7 +20,7 @@ class CreateCompaniesTable extends Migration
             $table->text('slogan');
             $table->string('main_image_path');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('domain_id');
+//            $table->unsignedInteger('domain_id');
             $table->string('country', 100);
             $table->string('city');
             $table->string('street');
