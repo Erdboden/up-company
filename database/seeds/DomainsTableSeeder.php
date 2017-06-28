@@ -13,7 +13,7 @@ class DomainsTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
         for ($i = 0; $i < 50; $i++) {
-            $domainName = $faker->word;
+            $domainName = $faker->unique()->word;
 
             \App\Domain::create([
                 'name' => $domainName,

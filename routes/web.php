@@ -31,6 +31,9 @@ Route::get('/domains', 'DomainsController@index');
 Route::get('domains/{domain}', 'CompaniesController@index');
 
 
-Route::get('/companies/{company}/portfolio', 'PortfolioController@index');
+Route::get('companies/{company}/portfolio', 'PortfolioController@index');
+Route::post('companies/{company}/portfolio', 'PortfolioController@store');
+Route::patch('companies/{company}/portfolio/{portfolio}', 'PortfolioController@update');
+Route::delete('companies/{company}/portfolio/{portfolio}', 'PortfolioController@destroy');
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');

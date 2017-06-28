@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 68);
+/******/ 	return __webpack_require__(__webpack_require__.s = 71);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,7 +73,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(7);
+var bind = __webpack_require__(8);
 
 /*global toString:true*/
 
@@ -454,10 +454,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(3);
+    adapter = __webpack_require__(4);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(3);
+    adapter = __webpack_require__(4);
   }
   return adapter;
 }
@@ -528,10 +528,37 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(47)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(48)))
 
 /***/ }),
 /* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+    data: function data() {
+        return {
+            items: []
+        };
+    },
+
+    methods: {
+        add: function add(item) {
+            this.items.push(item);
+            this.$emit('added');
+        },
+        remove: function remove(index) {
+            alert(index);
+            this.items.splice(index, 1);
+            // alert(this.items);
+            // console.log(this.items);
+            this.$emit('removed');
+        }
+    }
+});
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -542,7 +569,7 @@ var settle = __webpack_require__(22);
 var buildURL = __webpack_require__(25);
 var parseHeaders = __webpack_require__(31);
 var isURLSameOrigin = __webpack_require__(29);
-var createError = __webpack_require__(6);
+var createError = __webpack_require__(7);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(24);
 
 module.exports = function xhrAdapter(config) {
@@ -715,7 +742,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -741,7 +768,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -753,7 +780,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -777,7 +804,7 @@ module.exports = function createError(message, config, code, response) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -793,33 +820,6 @@ module.exports = function bind(fn, thisArg) {
   };
 };
 
-
-/***/ }),
-/* 8 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({
-    data: function data() {
-        return {
-            items: []
-        };
-    },
-
-    methods: {
-        add: function add(item) {
-            this.items.push(item);
-            this.$emit('added');
-        },
-        remove: function remove(index) {
-            alert(index);
-            this.items.splice(index, 1);
-            // alert(this.items);
-            // console.log(this.items);
-            this.$emit('removed');
-        }
-    }
-});
 
 /***/ }),
 /* 9 */
@@ -897,7 +897,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(66)
+var listToStyles = __webpack_require__(69)
 
 /*
 type StyleObject = {
@@ -10835,7 +10835,7 @@ module.exports = g;
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(41);
+__webpack_require__(42);
 
 window.Vue = __webpack_require__(11);
 
@@ -10845,8 +10845,8 @@ window.Vue = __webpack_require__(11);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('company-view', __webpack_require__(54));
-Vue.component('profile-view', __webpack_require__(55));
+Vue.component('company-view', __webpack_require__(56));
+Vue.component('profile-view', __webpack_require__(57));
 var app = new Vue({
   el: '#app'
 });
@@ -10871,7 +10871,7 @@ module.exports = __webpack_require__(16);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(7);
+var bind = __webpack_require__(8);
 var Axios = __webpack_require__(18);
 var defaults = __webpack_require__(2);
 
@@ -10906,9 +10906,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(4);
+axios.Cancel = __webpack_require__(5);
 axios.CancelToken = __webpack_require__(17);
-axios.isCancel = __webpack_require__(5);
+axios.isCancel = __webpack_require__(6);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -10929,7 +10929,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var Cancel = __webpack_require__(4);
+var Cancel = __webpack_require__(5);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -11146,7 +11146,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(23);
-var isCancel = __webpack_require__(5);
+var isCancel = __webpack_require__(6);
 var defaults = __webpack_require__(2);
 
 /**
@@ -11256,7 +11256,7 @@ module.exports = function enhanceError(error, config, code, response) {
 "use strict";
 
 
-var createError = __webpack_require__(6);
+var createError = __webpack_require__(7);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -11725,6 +11725,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['data', 'domains'],
@@ -11750,6 +11764,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         show: function show() {
             this.$emit('editing', this.data.id);
+        },
+        showPortfolioForm: function showPortfolioForm(item, method, companySlug) {
+            this.$emit('showPortfolio', item, method, companySlug);
         }
     }
 });
@@ -11760,7 +11777,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_Collection_js__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_Collection_js__ = __webpack_require__(3);
 //
 //
 //
@@ -11829,6 +11846,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.filter();
     },
 
+    watch: {
+        data: function data() {
+            this.domain = this.data.domain, this.name = this.data.name, this.slug = this.data.slug, this.country = this.data.country, this.city = this.data.city, this.street = this.data.street, image = this.data.main_image_path, slogan = this.data.slogan;
+        }
+    },
     methods: {
         update: function update() {
             if (this.name != this.data.name) {
@@ -11848,7 +11870,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.collapse();
         },
         deleteDomain: function deleteDomain(id, index) {
-            alert(id);
             axios.patch('/companies/' + this.data.slug + '/domain', {
                 domain: id
             });
@@ -11874,11 +11895,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__PortfolioItem_vue__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__PortfolioItem_vue__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__PortfolioItem_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__PortfolioItem_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PortfolioItemDetails_vue__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PortfolioItemDetails_vue__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PortfolioItemDetails_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__PortfolioItemDetails_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_Collection_js__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_Collection_js__ = __webpack_require__(3);
 //
 //
 //
@@ -11908,11 +11929,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
+            companyName: this.data,
             showPortfolioDetails: false,
             portfolioDetails: ''
         };
     },
 
+    watch: {
+        data: function data() {
+            this.companyName = this.data;
+            this.fetch();
+        }
+    },
     methods: {
         fetch: function fetch() {
 
@@ -11924,7 +11952,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.items = data;
         },
         url: function url() {
-            return location.pathname + '/portfolio';
+            return '/companies/' + this.companyName + '/portfolio';
         },
         showDetails: function showDetails(portfolioItem) {
             this.portfolioDetails = portfolioItem;
@@ -11935,6 +11963,81 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 36 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['data', 'companySlug', 'method'],
+    data: function data() {
+        return {
+            id: this.data.id,
+            title: this.data.title,
+            image: this.data.image_path,
+            body: this.data.body,
+            company: this.companySlug,
+            formMethod: this.method
+        };
+    },
+
+    watch: {
+        data: function data() {
+            this.id = this.data.id, this.title = this.data.title, this.image = this.data.image_path, this.body = this.data.body, this.company = this.companySlug, this.formMethod = this.method;
+        }
+    },
+    methods: {
+        update: function update() {
+            axios.patch('/companies/' + this.company + '/portfolio/' + this.id, {
+                title: this.title,
+                image: this.image,
+                body: this.body
+            });
+            this.collapse();
+        },
+        create: function create() {
+            axios.post('/companies/' + this.company + '/portfolio/', {
+                title: this.title,
+                image: this.image,
+                body: this.body
+            });
+            this.collapse();
+        },
+        destroy: function destroy() {
+            axios.delete('/companies/' + this.company + '/portfolio/' + this.id);
+            //                this.data.splice(index, 1);
+            this.collapse();
+        },
+        collapse: function collapse() {
+            this.$emit('collapse', this.id);
+        }
+    }
+});
+
+/***/ }),
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11971,7 +12074,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12000,7 +12103,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12012,14 +12115,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Portfolio_vue__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Portfolio_vue__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Portfolio_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Portfolio_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Reviews_vue__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Reviews_vue__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Reviews_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Reviews_vue__);
 //
 //
@@ -12090,16 +12193,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Companies_vue__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Companies_vue__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Companies_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Companies_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_EditCompanyForm_vue__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_EditCompanyForm_vue__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_EditCompanyForm_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_EditCompanyForm_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_Collection_js__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PortfolioForm_vue__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PortfolioForm_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_PortfolioForm_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_Collection_js__ = __webpack_require__(3);
 //
 //
 //
@@ -12127,25 +12232,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['domains'],
-    components: { Companies: __WEBPACK_IMPORTED_MODULE_0__components_Companies_vue___default.a, EditCompanyForm: __WEBPACK_IMPORTED_MODULE_1__components_EditCompanyForm_vue___default.a },
-    mixins: [__WEBPACK_IMPORTED_MODULE_2__mixins_Collection_js__["a" /* default */]],
+    components: { Companies: __WEBPACK_IMPORTED_MODULE_0__components_Companies_vue___default.a, EditCompanyForm: __WEBPACK_IMPORTED_MODULE_1__components_EditCompanyForm_vue___default.a, PortfolioForm: __WEBPACK_IMPORTED_MODULE_2__components_PortfolioForm_vue___default.a },
+    mixins: [__WEBPACK_IMPORTED_MODULE_3__mixins_Collection_js__["a" /* default */]],
     data: function data() {
         return {
+            method: '',
+            companySlug: '',
             editForm: false,
-            companies: this.data,
+            portfolioForm: false,
+            //                companies: '',
+            portfolioToEdit: '',
             companyToEdit: ''
         };
     },
     created: function created() {
         this.fetch();
         $(document).ready(function () {
-            $('#example').DataTable();
+            $('#companies').DataTable();
         });
     },
 
@@ -12154,12 +12269,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //                return window.App.signedIn;
         //            },
         //
-        //            canUpdate() {
-        //                return this.authorize(user => this.data.user_id == user.id);
-        //            }
+        canUpdate: function canUpdate() {
+            var _this = this;
+
+            return this.authorize(function (user) {
+                return _this.items.user_id == user.id;
+            });
+        }
     },
     methods: {
         fetch: function fetch() {
+            this.portfolioForm = false;
             axios.get('' + location.pathname).then(this.refresh);
         },
         refresh: function refresh(_ref) {
@@ -12170,44 +12290,49 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         showForm: function showForm(company) {
             this.editForm = true;
+            this.portfolioForm = false;
             this.companyToEdit = company;
+        },
+        showPortfolioForm: function showPortfolioForm(portfolio, method, companySlug) {
+            this.companySlug = companySlug;
+            this.method = method;
+            this.portfolioToEdit = portfolio;
+            this.portfolioForm = true;
+            this.editForm = false;
+            //                this.$emit('companyChanged');
         }
     }
 });
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-window._ = __webpack_require__(46);
-
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
+window._ = __webpack_require__(47);
 
 try {
-    window.$ = window.jQuery = __webpack_require__(45);
+    window.$ = window.jQuery = __webpack_require__(46);
 
-    __webpack_require__(42);
+    __webpack_require__(43);
 } catch (e) {}
 
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
+window.Vue = __webpack_require__(11);
+
+Vue.prototype.authorize = function (handler) {
+    // Additional admin privileges here.
+    var user = window.App.user;
+
+    return user ? handler(user) : false;
+};
 
 window.axios = __webpack_require__(15);
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common = {
+    'X-CSRF-TOKEN': window.App.csrfToken,
+    'X-Requested-With': 'XMLHttpRequest'
+};
+// window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-/**
- * Next we will register the CSRF Token as a common header with Axios so that
- * all outgoing HTTP requests automatically have it attached. This is just
- * a simple convenience so we don't have to attach every token manually.
- */
 
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
@@ -12216,19 +12341,11 @@ if (token) {
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
-window.Vue = __webpack_require__(11);
-
-Vue.prototype.authorize = function (handler) {
-    // Additional admin privileges here.
-    var user = window.app.user;
-
-    return user ? handler(user) : false;
-};
 
 window.events = new Vue();
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports) {
 
 /*!
@@ -14611,21 +14728,21 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
 exports.push([module.i, "\n.thumbnail-height{\n    height: 225px;\n}\n", ""]);
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
 exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity .5s\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */\n{\n    opacity: 0\n}\n", ""]);
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -24885,7 +25002,7 @@ return jQuery;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -41974,10 +42091,10 @@ return jQuery;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(67)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(70)(module)))
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -42167,20 +42284,20 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(33),
   /* template */
-  __webpack_require__(61),
+  __webpack_require__(64),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mark/PhpstormProjects/up-company/resources/assets/js/components/Companies.vue"
+Component.options.__file = "E:\\programs\\php projects\\terranet\\up-company\\resources\\assets\\js\\components\\Companies.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Companies.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -42201,20 +42318,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(34),
   /* template */
-  __webpack_require__(57),
+  __webpack_require__(60),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mark/PhpstormProjects/up-company/resources/assets/js/components/EditCompanyForm.vue"
+Component.options.__file = "E:\\programs\\php projects\\terranet\\up-company\\resources\\assets\\js\\components\\EditCompanyForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] EditCompanyForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -42235,24 +42352,24 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(65)
+__webpack_require__(68)
 
 var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(35),
   /* template */
-  __webpack_require__(59),
+  __webpack_require__(62),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mark/PhpstormProjects/up-company/resources/assets/js/components/Portfolio.vue"
+Component.options.__file = "E:\\programs\\php projects\\terranet\\up-company\\resources\\assets\\js\\components\\Portfolio.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Portfolio.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -42273,24 +42390,58 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
-
-
-/* styles */
-__webpack_require__(64)
 
 var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(36),
   /* template */
-  __webpack_require__(56),
+  __webpack_require__(59),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mark/PhpstormProjects/up-company/resources/assets/js/components/PortfolioItem.vue"
+Component.options.__file = "E:\\programs\\php projects\\terranet\\up-company\\resources\\assets\\js\\components\\PortfolioForm.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] PortfolioForm.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1c0b67c6", Component.options)
+  } else {
+    hotAPI.reload("data-v-1c0b67c6", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(67)
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(37),
+  /* template */
+  __webpack_require__(58),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "E:\\programs\\php projects\\terranet\\up-company\\resources\\assets\\js\\components\\PortfolioItem.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] PortfolioItem.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -42311,20 +42462,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(37),
+  __webpack_require__(38),
   /* template */
-  __webpack_require__(63),
+  __webpack_require__(66),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mark/PhpstormProjects/up-company/resources/assets/js/components/PortfolioItemDetails.vue"
+Component.options.__file = "E:\\programs\\php projects\\terranet\\up-company\\resources\\assets\\js\\components\\PortfolioItemDetails.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] PortfolioItemDetails.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -42345,20 +42496,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(38),
+  __webpack_require__(39),
   /* template */
-  __webpack_require__(58),
+  __webpack_require__(61),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mark/PhpstormProjects/up-company/resources/assets/js/components/Reviews.vue"
+Component.options.__file = "E:\\programs\\php projects\\terranet\\up-company\\resources\\assets\\js\\components\\Reviews.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Reviews.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -42379,20 +42530,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(39),
+  __webpack_require__(40),
   /* template */
-  __webpack_require__(62),
+  __webpack_require__(65),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mark/PhpstormProjects/up-company/resources/assets/js/pages/Company.vue"
+Component.options.__file = "E:\\programs\\php projects\\terranet\\up-company\\resources\\assets\\js\\pages\\Company.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Company.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -42413,20 +42564,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(40),
+  __webpack_require__(41),
   /* template */
-  __webpack_require__(60),
+  __webpack_require__(63),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mark/PhpstormProjects/up-company/resources/assets/js/pages/Profile.vue"
+Component.options.__file = "E:\\programs\\php projects\\terranet\\up-company\\resources\\assets\\js\\pages\\Profile.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Profile.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -42447,7 +42598,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -42490,7 +42641,112 @@ if (false) {
 }
 
 /***/ }),
-/* 57 */
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('label', [_vm._v("Title:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.title),
+      expression: "title"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "required": ""
+    },
+    domProps: {
+      "value": (_vm.title)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.title = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', [_vm._v("Image:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.image),
+      expression: "image"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "required": ""
+    },
+    domProps: {
+      "value": (_vm.image)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.image = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', [_vm._v("Body:")]), _vm._v(" "), _c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.body),
+      expression: "body"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "rows": "8"
+    },
+    domProps: {
+      "value": (_vm.body)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.body = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), (_vm.formMethod === 'post') ? _c('button', {
+    staticClass: "btn btn-primary",
+    on: {
+      "click": _vm.create
+    }
+  }, [_vm._v("Add")]) : _vm._e(), _vm._v(" "), (_vm.formMethod === 'patch') ? _c('button', {
+    staticClass: "btn btn-primary",
+    on: {
+      "click": _vm.update
+    }
+  }, [_vm._v("Update")]) : _vm._e(), _vm._v(" "), (_vm.formMethod === 'patch') ? _c('button', {
+    staticClass: "btn btn-danger",
+    on: {
+      "click": _vm.destroy
+    }
+  }, [_vm._v("Delete")]) : _vm._e(), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-link",
+    on: {
+      "click": _vm.collapse
+    }
+  }, [_vm._v("Cancel")])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-1c0b67c6", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -42698,7 +42954,7 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -42715,11 +42971,15 @@ if (false) {
 }
 
 /***/ }),
-/* 59 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('p', {
+  return _c('div', {
+    on: {
+      "companyChanged": _vm.fetch
+    }
+  }, [_c('p', {
     staticClass: "text-center"
   }, [_vm._v("Portfolio")]), _vm._v(" "), _c('transition', {
     attrs: {
@@ -42760,7 +43020,7 @@ if (false) {
 }
 
 /***/ }),
-/* 60 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -42769,7 +43029,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('table', {
     staticClass: "table",
     attrs: {
-      "id": "example"
+      "id": "companies"
     }
   }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.items), function(company, index) {
     return _c('companies', {
@@ -42783,10 +43043,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         },
         "editing": function($event) {
           _vm.showForm(company)
-        }
+        },
+        "showPortfolio": _vm.showPortfolioForm
       }
     })
-  })], 2), _vm._v(" "), (_vm.editForm) ? _c('edit-company-form', {
+  })], 2), _vm._v(" "), (_vm.portfolioForm) ? _c('portfolio-form', {
+    attrs: {
+      "data": _vm.portfolioToEdit,
+      "method": _vm.method,
+      "companySlug": _vm.companySlug
+    },
+    on: {
+      "collapse": _vm.fetch
+    }
+  }) : _vm._e(), _vm._v(" "), (_vm.editForm) ? _c('edit-company-form', {
     attrs: {
       "data": _vm.companyToEdit,
       "domains": _vm.domains
@@ -42796,7 +43066,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }) : _vm._e()], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("title")]), _vm._v(" "), _c('th', [_vm._v("domain")]), _vm._v(" "), _c('th', [_vm._v("country")]), _vm._v(" "), _c('th', [_vm._v("city")]), _vm._v(" "), _c('th', [_vm._v("street")]), _vm._v(" "), _c('th', [_vm._v("slogan")]), _vm._v(" "), _c('th', [_vm._v("image")]), _vm._v(" "), _c('th', [_vm._v("Edit")]), _vm._v(" "), _c('th', [_vm._v("Delete")])])])
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("title")]), _vm._v(" "), _c('th', [_vm._v("domain")]), _vm._v(" "), _c('th', [_vm._v("country")]), _vm._v(" "), _c('th', [_vm._v("city")]), _vm._v(" "), _c('th', [_vm._v("street")]), _vm._v(" "), _c('th', [_vm._v("slogan")]), _vm._v(" "), _c('th', [_vm._v("image")]), _vm._v(" "), _c('th', [_vm._v("portfolio")]), _vm._v(" "), _c('th', [_vm._v("Edit")]), _vm._v(" "), _c('th', [_vm._v("Delete")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -42807,7 +43077,7 @@ if (false) {
 }
 
 /***/ }),
-/* 61 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -42845,18 +43115,66 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": _vm.image
     }
-  })]), _vm._v(" "), _c('th', [_c('button', {
+  })]), _vm._v(" "), _c('th', [_c('div', {
+    staticClass: "btn-group"
+  }, [_vm._m(0), _vm._v(" "), _c('ul', {
+    staticClass: "dropdown-menu"
+  }, [_c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.showPortfolioForm('', 'post', _vm.data.slug)
+      }
+    }
+  }, [_vm._v("New")])]), _vm._v(" "), _vm._l((_vm.data.portfolio), function(item, index) {
+    return _c('li', {
+      attrs: {
+        "value": item.id
+      }
+    }, [_c('a', {
+      attrs: {
+        "href": "#"
+      },
+      on: {
+        "click": function($event) {
+          $event.preventDefault();
+          _vm.showPortfolioForm(item, 'patch', _vm.data.slug)
+        }
+      }
+    }, [_vm._v(_vm._s(item.title))])])
+  })], 2)])]), _vm._v(" "), _c('th', [_c('button', {
     staticClass: "btn btn-info",
     on: {
-      "click": _vm.show
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.show($event)
+      }
     }
   }, [_vm._v("Edit")])]), _vm._v(" "), _c('th', [_c('button', {
     staticClass: "btn btn-danger",
     on: {
-      "click": _vm.destroy
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.destroy($event)
+      }
     }
   }, [_vm._v("Delete")])])])])
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('button', {
+    staticClass: "btn btn-info dropdown-toggle",
+    attrs: {
+      "type": "button",
+      "data-toggle": "dropdown",
+      "aria-haspopup": "true",
+      "aria-expanded": "false"
+    }
+  }, [_vm._v("\n                Edit portfolio "), _c('span', {
+    staticClass: "caret"
+  })])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -42866,7 +43184,7 @@ if (false) {
 }
 
 /***/ }),
-/* 62 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -42899,7 +43217,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('hr'), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
-  }, [_c('portfolio')], 1), _vm._v(" "), _c('hr'), _vm._v(" "), _c('reviews')], 1)]), _vm._v(" "), _c('div', {
+  }, [_c('portfolio', {
+    attrs: {
+      "data": _vm.name
+    }
+  })], 1), _vm._v(" "), _c('hr'), _vm._v(" "), _c('reviews')], 1)]), _vm._v(" "), _c('div', {
     staticClass: "col-md-2 company-details"
   }, [_c('div', {
     staticClass: "panel panel-default"
@@ -42942,7 +43264,7 @@ if (false) {
 }
 
 /***/ }),
-/* 63 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -42986,13 +43308,13 @@ if (false) {
 }
 
 /***/ }),
-/* 64 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(43);
+var content = __webpack_require__(44);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -43012,13 +43334,13 @@ if(false) {
 }
 
 /***/ }),
-/* 65 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(44);
+var content = __webpack_require__(45);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -43038,7 +43360,7 @@ if(false) {
 }
 
 /***/ }),
-/* 66 */
+/* 69 */
 /***/ (function(module, exports) {
 
 /**
@@ -43071,7 +43393,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 67 */
+/* 70 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -43099,7 +43421,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 68 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);

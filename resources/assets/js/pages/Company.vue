@@ -14,7 +14,7 @@
                     <div class="panel-body" v-text="slogan"></div>
                     <hr>
                     <div class="panel-body">
-                        <portfolio></portfolio>
+                        <portfolio :data="name"></portfolio>
                     </div>
                     <hr>
                     <reviews></reviews>

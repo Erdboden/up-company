@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div @companyChanged="fetch">
 
         <p class="text-center">Portfolio</p>
         <transition name="fade">
@@ -26,10 +26,18 @@
         created(){
             this.fetch();
         },
+
         data(){
             return {
+                companyName : this.data,
                 showPortfolioDetails: false,
                 portfolioDetails: ''
+            }
+        },
+        watch: {
+            data: function () {
+                this.companyName = this.data
+                this.fetch();
             }
         },
         methods: {
@@ -43,7 +51,7 @@
 
             },
             url(){
-                return `${location.pathname}/portfolio`;
+                return `/companies/${this.companyName}/portfolio`;
             },
             showDetails(portfolioItem){
                 this.portfolioDetails = portfolioItem;

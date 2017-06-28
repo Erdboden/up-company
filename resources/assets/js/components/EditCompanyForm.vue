@@ -65,6 +65,18 @@
         created(){
             this.filter();
         },
+        watch: {
+            data: function () {
+                this.domain = this.data.domain,
+                    this.name = this.data.name,
+                    this.slug = this.data.slug,
+                    this.country = this.data.country,
+                    this.city = this.data.city,
+                    this.street = this.data.street,
+                    image = this.data.main_image_path,
+                    slogan = this.data.slogan
+            }
+        },
         methods: {
             update(){
                 if (this.name != this.data.name) {
@@ -84,7 +96,6 @@
                 this.collapse();
             },
             deleteDomain(id, index){
-                alert(id);
                 axios.patch('/companies/' + this.data.slug + '/domain', {
                     domain: id
                 });
@@ -96,9 +107,9 @@
             filter(){
 
 //                this.domains.forEach(function (element) {
-                    this.domain.forEach(function (element) {
+                this.domain.forEach(function (element) {
 
-                    });
+                });
 //                    console.log(element);
 //                });
             }

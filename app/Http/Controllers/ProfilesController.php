@@ -7,9 +7,18 @@ use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
 {
+
+    /**
+     * ProfilesController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('profile');
+    }
+
     public function show(User $user)
     {
-//        dd($user->userCompanies);
+
         if (request()->expectsJson()) {
             return $user->userCompanies;
         }

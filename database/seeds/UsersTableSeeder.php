@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
         static $password;
         for ($i = 0; $i < 50; $i++) {
             $user = User::create([
-                'name' => $faker->name,
+                'name' => $faker->unique()->name,
                 'email' => $faker->unique()->safeEmail,
                 'password' => $password ?: $password = bcrypt('secret'),
                 'remember_token' => str_random(10)

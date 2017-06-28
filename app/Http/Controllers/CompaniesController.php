@@ -68,6 +68,7 @@ class CompaniesController extends Controller
 
     public function destroy(Company $company)
     {
+        $this->authorize('update', $company);
         $company->delete();
         if (request()->expectsJson()) {
             return response(['status' => 'company deleted']);
@@ -77,11 +78,10 @@ class CompaniesController extends Controller
 
     public function update(Company $company)
     {
-//        $this->authorize('update', $reply);
+        $this->authorize('update', $company);
 
         $this->validate(request(), [
             'name' => 'required',
-//            'selectedDomain' => 'required|exists:domains,id',
             'country' => 'required',
             'city' => 'required',
             'street' => 'required',
@@ -92,7 +92,6 @@ class CompaniesController extends Controller
         $company->update([
             'name' => request('name'),
             'slug' => request('slug'),
-//            'domain_id' => request('domain'),
             'country' => request('country'),
             'city' => request('city'),
             'street' => request('street'),
@@ -104,6 +103,7 @@ class CompaniesController extends Controller
 
     public function destroyDomain(Company $company)
     {
+        $this->authorize('update', $company);
         return $company->domain()->detach(request('domain'));
 
     }

@@ -11,10 +11,24 @@
         <th v-text="slogan"></th>
         <th><img :src="image"></th>
         <th>
-            <button class="btn btn-info" @click="show">Edit</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                    Edit portfolio <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" @click.prevent="showPortfolioForm('','post', data.slug)">New</a></li>
+                    <li v-for="(item, index) in data.portfolio" :value="item.id">
+                        <a href="#" @click.prevent="showPortfolioForm(item, 'patch', data.slug)">{{item.title}}</a>
+                    </li>
+                </ul>
+            </div>
         </th>
         <th>
-            <button class="btn btn-danger" @click="destroy">Delete</button>
+            <button class="btn btn-info" @click.prevent="show">Edit</button>
+        </th>
+        <th>
+            <button class="btn btn-danger" @click.prevent="destroy">Delete</button>
         </th>
     </tr>
     </tbody>
@@ -43,6 +57,9 @@
             },
             show(){
                 this.$emit('editing', this.data.id);
+            },
+            showPortfolioForm(item, method, companySlug){
+                this.$emit('showPortfolio', item, method, companySlug);
             }
         }
     }

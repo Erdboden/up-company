@@ -17,7 +17,7 @@ class CompaniesTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
         for ($i = 0; $i < 50; $i++) {
-            $companyName = $faker->word;
+            $companyName = $faker->unique()->word;
             $company = Company::create([
                 'name' => $companyName,
                 'slug' => str_replace(' ', '-', $companyName),

@@ -8,7 +8,7 @@ class Company extends Model
 {
 
     protected $guarded = [];
-    protected $with = ['owner', 'domain'];
+    protected $with = ['owner', 'domain', 'portfolio'];
 
     public function getRouteKeyName()
     {

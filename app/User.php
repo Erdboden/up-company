@@ -26,6 +26,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'role_id'
     ];
+
 //    protected $with = ['companies'];
 
     public function getRouteKeyName()
@@ -46,6 +47,16 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function isAdmin()
+    {
+        foreach ($this->roles()->get() as $role) {
+            if ($role->name == 'admin') {
+                return true;
+            }
+        }
+        return false;
     }
 
     public function reviews()
