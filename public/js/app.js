@@ -548,7 +548,6 @@ module.exports = defaults;
             this.$emit('added');
         },
         remove: function remove(index) {
-            alert(index);
             this.items.splice(index, 1);
             // alert(this.items);
             // console.log(this.items);
@@ -11929,7 +11928,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            companyName: this.data,
+            companySlug: this.data,
             showPortfolioDetails: false,
             portfolioDetails: ''
         };
@@ -11937,7 +11936,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     watch: {
         data: function data() {
-            this.companyName = this.data;
+            this.companySlug = this.data;
             this.fetch();
         }
     },
@@ -11952,7 +11951,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.items = data;
         },
         url: function url() {
-            return '/companies/' + this.companyName + '/portfolio';
+            return '/companies/' + this.companySlug + '/portfolio';
         },
         showDetails: function showDetails(portfolioItem) {
             this.portfolioDetails = portfolioItem;
@@ -12177,6 +12176,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             name: this.data.name,
+            slug: this.data.slug,
             main_image_path: this.data.main_image_path,
             slogan: this.data.slogan,
             city: this.data.city,
@@ -12205,7 +12205,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PortfolioForm_vue__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PortfolioForm_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_PortfolioForm_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_Collection_js__ = __webpack_require__(3);
-//
 //
 //
 //
@@ -12269,13 +12268,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //                return window.App.signedIn;
         //            },
         //
-        canUpdate: function canUpdate() {
-            var _this = this;
-
-            return this.authorize(function (user) {
-                return _this.items.user_id == user.id;
-            });
-        }
+        //            canUpdate() {
+        //                return this.authorize(user => this.items.user_id == user.id);
+        //            }
     },
     methods: {
         fetch: function fetch() {
@@ -12318,12 +12313,12 @@ try {
 
 window.Vue = __webpack_require__(11);
 
-Vue.prototype.authorize = function (handler) {
-    // Additional admin privileges here.
-    var user = window.App.user;
-
-    return user ? handler(user) : false;
-};
+// Vue.prototype.authorize = function (handler) {
+//     // Additional admin privileges here.
+//     let user = window.App.user;
+//
+//     return user ? handler(user) : false;
+// };
 
 window.axios = __webpack_require__(15);
 
@@ -43219,7 +43214,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel-body"
   }, [_c('portfolio', {
     attrs: {
-      "data": _vm.name
+      "data": _vm.slug
     }
   })], 1), _vm._v(" "), _c('hr'), _vm._v(" "), _c('reviews')], 1)]), _vm._v(" "), _c('div', {
     staticClass: "col-md-2 company-details"

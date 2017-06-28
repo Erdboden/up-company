@@ -13,7 +13,7 @@ class ProfilesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('profile');
+        $this->middleware('profile')->only(['show']);
     }
 
     public function show(User $user)

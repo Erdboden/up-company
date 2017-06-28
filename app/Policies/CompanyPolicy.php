@@ -11,7 +11,6 @@ class CompanyPolicy
     use HandlesAuthorization;
 
 
-
     /**
      * Determine whether the user can view the company.
      *
@@ -46,11 +45,12 @@ class CompanyPolicy
     {
         if ($user->isAdmin()) {
             return true;
-        } else if ($company->user_id == $user->id) {
-            return true;
-        } else {
-            return false;
         }
+        if ($company->user_id == $user->id) {
+            return true;
+        }
+        return false;
+
     }
 
     /**
@@ -62,6 +62,5 @@ class CompanyPolicy
      */
     public function delete(User $user, Company $company)
     {
-        //
     }
 }

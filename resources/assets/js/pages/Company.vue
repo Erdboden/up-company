@@ -14,7 +14,7 @@
                     <div class="panel-body" v-text="slogan"></div>
                     <hr>
                     <div class="panel-body">
-                        <portfolio :data="name"></portfolio>
+                        <portfolio :data="slug"></portfolio>
                     </div>
                     <hr>
                     <reviews></reviews>
@@ -51,6 +51,7 @@
         data(){
             return {
                 name: this.data.name,
+                slug: this.data.slug,
                 main_image_path: this.data.main_image_path,
                 slogan: this.data.slogan,
                 city: this.data.city,

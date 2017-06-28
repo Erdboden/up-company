@@ -23,7 +23,6 @@
                     @showPortfolio="showPortfolioForm"></companies>
         </table>
 
-        <!--<portfolio v-if="showPortfolioItems" :data="companyName"></portfolio>-->
         <portfolio-form :data="portfolioToEdit" :method="method" :companySlug="companySlug"
                         v-if="portfolioForm" @collapse="fetch"></portfolio-form>
         <edit-company-form :data="companyToEdit" v-if="editForm" :domains="domains"
@@ -61,9 +60,9 @@
 //                return window.App.signedIn;
 //            },
 //
-            canUpdate() {
-                return this.authorize(user => this.items.user_id == user.id);
-            }
+//            canUpdate() {
+//                return this.authorize(user => this.items.user_id == user.id);
+//            }
         },
         methods: {
             fetch() {

@@ -29,14 +29,14 @@
 
         data(){
             return {
-                companyName : this.data,
+                companySlug : this.data,
                 showPortfolioDetails: false,
                 portfolioDetails: ''
             }
         },
         watch: {
             data: function () {
-                this.companyName = this.data
+                this.companySlug = this.data
                 this.fetch();
             }
         },
@@ -51,7 +51,7 @@
 
             },
             url(){
-                return `/companies/${this.companyName}/portfolio`;
+                return `/companies/${this.companySlug}/portfolio`;
             },
             showDetails(portfolioItem){
                 this.portfolioDetails = portfolioItem;
