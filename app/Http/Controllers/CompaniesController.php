@@ -19,9 +19,7 @@ class CompaniesController extends Controller
 
     public function index(Domain $domain)
     {
-//        return $domain->companies;
         $companies = $this->getCompanies($domain);
-//        $companies = Company::latest();
 
         if (request()->wantsJson()) {
             return $companies;

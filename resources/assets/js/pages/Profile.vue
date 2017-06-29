@@ -23,7 +23,7 @@
                     @showPortfolio="showPortfolioForm"></companies>
         </table>
 
-        <portfolio-form :data="portfolioToEdit" :method="method" :companySlug="companySlug"
+        <portfolio-form :data="portfolioToEdit" :companySlug="companySlug"
                         v-if="portfolioForm" @collapse="fetch"></portfolio-form>
         <edit-company-form :data="companyToEdit" v-if="editForm" :domains="domains"
                            @editing="fetch"></edit-company-form>
@@ -40,11 +40,9 @@
         mixins: [collection],
         data(){
             return {
-                method: '',
                 companySlug: '',
                 editForm: false,
                 portfolioForm: false,
-//                companies: '',
                 portfolioToEdit: '',
                 companyToEdit: '',
             }
@@ -54,15 +52,6 @@
             $(document).ready(function () {
                 $('#companies').DataTable();
             });
-        },
-        computed: {
-//            signedIn() {
-//                return window.App.signedIn;
-//            },
-//
-//            canUpdate() {
-//                return this.authorize(user => this.items.user_id == user.id);
-//            }
         },
         methods: {
             fetch() {
@@ -74,17 +63,16 @@
                 this.items = data;
             },
             showForm(company){
+                this.editForm = false;
                 this.editForm = true;
                 this.portfolioForm = false;
                 this.companyToEdit = company;
             },
-            showPortfolioForm(portfolio, method, companySlug){
+            showPortfolioForm(portfolio, companySlug){
                 this.companySlug = companySlug;
-                this.method = method;
                 this.portfolioToEdit = portfolio;
                 this.portfolioForm = true;
                 this.editForm = false;
-//                this.$emit('companyChanged');
             }
         }
     }

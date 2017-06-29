@@ -11,6 +11,8 @@
                         You are logged in!
 
                         <p class="text-center"><a href="/domains">Start viewing companies</a></p>
+
+                        <word-counter></word-counter>
                     </div>
                 </div>
             </div>

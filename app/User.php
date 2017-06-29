@@ -41,7 +41,7 @@ class User extends Authenticatable
 
     public function getUserCompaniesAttribute()
     {
-        return $this->companies()->where('user_id', auth()->id())->get();
+        return $this->companies()->where('user_id', $this->id)->get();
     }
 
     public function roles()

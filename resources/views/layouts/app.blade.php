@@ -33,6 +33,14 @@
             align-items: center;
         }
 
+        .center {
+            display: flex;
+            flex-direction: row; /* make main axis horizontal (default setting) */
+            justify-content: center; /* center items horizontally, in this case */
+            align-items: center; /* center items vertically, in this case */
+            /*height: 300px;*/
+        }
+
         .flex {
             flex: 1;
         }
@@ -40,6 +48,7 @@
         .mr-1 {
             margin-right: 1em;
         }
+
         .company-details {
             position: fixed;
             right: 25px;
@@ -53,6 +62,8 @@
     @include('layouts.nav')
 
     @yield('content')
+
+    <flash message="{{ session('flash') }}"></flash>
 </div>
 
 <!-- Scripts -->

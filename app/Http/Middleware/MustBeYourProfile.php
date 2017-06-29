@@ -16,8 +16,10 @@ class MustBeYourProfile
     public function handle($request, Closure $next)
     {
         $user = $request->user();
-//        echo( $request->segment(2));
         if ($user && $user->name == $request->segment(2)) {
+            return $next($request);
+        }
+        if ($user->isAdmin()) {
             return $next($request);
         }
         abort('404', 'Page not found');

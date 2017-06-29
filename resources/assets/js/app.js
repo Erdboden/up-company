@@ -15,9 +15,13 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
+Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('company-view', require('./pages/Company.vue'));
 Vue.component('profile-view', require('./pages/Profile.vue'));
+
+Vue.component('users-view', require('./pages/admin/Users.vue'));
+
+Vue.component('word-counter', require('./components/WordCounter.vue'));
 const app = new Vue({
     el: '#app'
 });
