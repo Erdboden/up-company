@@ -22,15 +22,25 @@
             </div>
             <button class="btn btn-primary" @click.prevent="onSubmit" v-if="!this.form.id">Add</button>
             <button class="btn btn-primary" @click.prevent="onUpdate" v-if="this.form.id">Update</button>
-            <button class="btn btn-danger" @click.prevent="onDelete" v-if="this.form.id">Delete</button>
+            <button class="btn btn-danger" @click.prevent="showModal=true" v-if="this.form.id">Delete</button>
             <button class="btn btn-link" @click.prevent="collapse">Cancel</button>
         </form>
+        <modal v-if="showModal" @close="showModal = false">
+            <h3 slot="header">Warning</h3>
+            <p slot="body">Are you sure you want to delete?</p>
+            <div slot="footer">
+                <button class="btn btn-info btn-lg" @click="onDelete">Yes</button>
+                <button class="btn btn-danger btn-lg" @click="showModal=false">No</button>
+            </div>
+        </modal>
     </div>
 </template>
 <script>
     import {Form} from '../classes/Form.js';
+    import Modal from './Modal.vue';
     export default{
         props: ['data', 'companySlug'],
+        components: {Modal},
         data(){
             return {
                 form: new Form({
@@ -38,8 +48,9 @@
                     title: this.data.title,
                     image: this.data.image_path,
                     body: this.data.body,
-                    company: this.companySlug
-                })
+                    company: this.companySlug,
+                }),
+                showModal: false
             }
         },
         watch: {
@@ -76,6 +87,7 @@
                     });
             },
             collapse(){
+                this.showModel = false;
                 this.$emit('collapse', this.id);
             }
         }
