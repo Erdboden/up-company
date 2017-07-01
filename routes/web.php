@@ -38,6 +38,7 @@ Route::delete('companies/{company}/portfolio/{portfolio}', 'PortfolioController@
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
 
+
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/users', 'UsersController@index');
 });

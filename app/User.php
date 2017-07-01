@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role_id'
+        'name', 'email', 'password'
     ];
 
     /**
@@ -26,8 +26,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'role_id'
     ];
-
-//    protected $with = ['companies'];
 
     public function getRouteKeyName()
     {
@@ -44,6 +42,10 @@ class User extends Authenticatable
         return $this->companies()->where('user_id', $this->id)->get();
     }
 
+    /**
+     * @editable
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function roles()
     {
         return $this->belongsToMany(Role::class);

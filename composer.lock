@@ -4,8 +4,266 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fbbdc05061626d913a442aaeeb1ff5bc",
+    "content-hash": "da0ba03c72f6eec095868609284ddc44",
     "packages": [
+        {
+            "name": "adminarchitect/core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adminarchitect/core.git",
+                "reference": "661e48c552d1c921c6c47456d6a43ab4bc0ac4c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adminarchitect/core/zipball/661e48c552d1c921c6c47456d6a43ab4bc0ac4c5",
+                "reference": "661e48c552d1c921c6c47456d6a43ab4bc0ac4c5",
+                "shasum": ""
+            },
+            "require": {
+                "codesleeve/laravel-stapler": "^1.0",
+                "creativeorange/gravatar": "~1.0",
+                "davejamesmiller/laravel-breadcrumbs": "3.0.*",
+                "doctrine/dbal": "~2.5",
+                "laravelcollective/html": "5.4.*",
+                "php": ">=5.6.4",
+                "terranet/localizer": "^1.0",
+                "terranet/menus": "2.2.*",
+                "terranet/php-humanizer": "2.*",
+                "terranet/presentable": "^1.0",
+                "terranet/translatable": "^1.0"
+            },
+            "require-dev": {
+                "laravel/framework": "5.4.*",
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~5.7"
+            },
+            "suggest": {
+                "adminarchitect/contacts": "configurable contact form",
+                "adminarchitect/localizer": "to have language detection support by Request Uri, Domain name and Environment",
+                "adminarchitect/news": "news module",
+                "adminarchitect/options": "to store and manage settings",
+                "adminarchitect/pages": "pages module",
+                "terranet/presentable": "implements presentable pattern",
+                "terranet/translatable": "to manage multilingual records"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Terranet\\Administrator\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Endi",
+                    "email": "endi1982@gmail.com"
+                }
+            ],
+            "description": "Active Admin for Laravel.",
+            "support": {
+                "source": "https://github.com/adminarchitect/core/tree/master",
+                "issues": "https://github.com/adminarchitect/core/issues"
+            },
+            "time": "2017-06-30T14:52:20+00:00"
+        },
+        {
+            "name": "codesleeve/laravel-stapler",
+            "version": "v1.0.08",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CodeSleeve/laravel-stapler.git",
+                "reference": "3be43835c45cc2a47795b0a79789f5058e1aa8fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CodeSleeve/laravel-stapler/zipball/3be43835c45cc2a47795b0a79789f5058e1aa8fb",
+                "reference": "3be43835c45cc2a47795b0a79789f5058e1aa8fb",
+                "shasum": ""
+            },
+            "require": {
+                "codesleeve/stapler": "1.2.*",
+                "laravel/framework": "4.*|5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
+                "psr-4": {
+                    "Codesleeve\\LaravelStapler\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Travis Bennett",
+                    "email": "tandrewbennett@hotmail.com"
+                }
+            ],
+            "description": "Easy file upload management for the Laravel Framework.",
+            "keywords": [
+                "aws",
+                "file",
+                "laravel",
+                "paperclip",
+                "s3",
+                "stapler",
+                "upload"
+            ],
+            "time": "2017-02-04T22:31:51+00:00"
+        },
+        {
+            "name": "codesleeve/stapler",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CodeSleeve/stapler.git",
+                "reference": "f15aa58d3dac213aefce27dd5885730d9bc31387"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CodeSleeve/stapler/zipball/f15aa58d3dac213aefce27dd5885730d9bc31387",
+                "reference": "f15aa58d3dac213aefce27dd5885730d9bc31387",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/inflector": "~1",
+                "imagine/imagine": "~0.6.2",
+                "php": ">=5.4",
+                "symfony/http-foundation": "~2.3|~3.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "2.4.*@dev",
+                "illuminate/config": "4.*|5.*",
+                "illuminate/database": "4.*|5.*",
+                "mockery/mockery": "0.8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codesleeve\\Stapler\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Travis Bennett",
+                    "email": "tandrewbennett@hotmail.com"
+                }
+            ],
+            "description": "Elegant and simple ORM-based file upload package for php.",
+            "keywords": [
+                "aws",
+                "file",
+                "orm",
+                "paperclip",
+                "s3",
+                "upload"
+            ],
+            "time": "2016-01-30T21:39:33+00:00"
+        },
+        {
+            "name": "creativeorange/gravatar",
+            "version": "1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/creativeorange/gravatar.git",
+                "reference": "a0e84f0c8e8922ad151168d6ebd8db6a1b2d8cd2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/creativeorange/gravatar/zipball/a0e84f0c8e8922ad151168d6ebd8db6a1b2d8cd2",
+                "reference": "a0e84f0c8e8922ad151168d6ebd8db6a1b2d8cd2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Creativeorange\\Gravatar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jaco Tijssen",
+                    "email": "jaco@creativeorange.nl",
+                    "homepage": "https://www.creativeorange.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel 5.0, 5.1, 5.2 and 5.3 gravatar package for retrieving gravatar image URLs or checking the existance of an image.",
+            "keywords": [
+                "avatar",
+                "gravatar",
+                "laravel"
+            ],
+            "time": "2017-02-15T22:07:40+00:00"
+        },
+        {
+            "name": "davejamesmiller/laravel-breadcrumbs",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davejamesmiller/laravel-breadcrumbs.git",
+                "reference": "0b0f4792dee645b0f084164aa17d4320e4bb734f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davejamesmiller/laravel-breadcrumbs/zipball/0b0f4792dee645b0f084164aa17d4320e4bb734f",
+                "reference": "0b0f4792dee645b0f084164aa17d4320e4bb734f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "illuminate/view": "5.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "3.2.*|3.3.*",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DaveJamesMiller\\Breadcrumbs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT License"
+            ],
+            "authors": [
+                {
+                    "name": "Dave James Miller",
+                    "email": "dave@davejamesmiller.com",
+                    "homepage": "https://davejamesmiller.com/"
+                }
+            ],
+            "description": "A simple Laravel-style way to create breadcrumbs in Laravel.",
+            "homepage": "https://laravel-breadcrumbs.readthedocs.io/",
+            "keywords": [
+                "laravel"
+            ],
+            "time": "2017-06-24T11:10:49+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -38,6 +296,355 @@
             ],
             "description": "implementation of xdg base directory specification for php",
             "time": "2014-10-24T07:27:01+00:00"
+        },
+        {
+            "name": "doctrine/annotations",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/annotations.git",
+                "reference": "54cacc9b81758b14e3ce750f205a393d52339e97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/54cacc9b81758b14e3ce750f205a393d52339e97",
+                "reference": "54cacc9b81758b14e3ce750f205a393d52339e97",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/lexer": "1.*",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "doctrine/cache": "1.*",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\Annotations\\": "lib/Doctrine/Common/Annotations"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Docblock Annotations Parser",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "annotations",
+                "docblock",
+                "parser"
+            ],
+            "time": "2017-02-24T16:22:25+00:00"
+        },
+        {
+            "name": "doctrine/cache",
+            "version": "v1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/cache.git",
+                "reference": "b6f544a20f4807e81f7044d31e679ccbb1866dc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/b6f544a20f4807e81f7044d31e679ccbb1866dc3",
+                "reference": "b6f544a20f4807e81f7044d31e679ccbb1866dc3",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.5|~7.0"
+            },
+            "conflict": {
+                "doctrine/common": ">2.2,<2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8|~5.0",
+                "predis/predis": "~1.0",
+                "satooshi/php-coveralls": "~0.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Caching library offering an object-oriented API for many cache backends",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "cache",
+                "caching"
+            ],
+            "time": "2016-10-29T11:16:17+00:00"
+        },
+        {
+            "name": "doctrine/collections",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/collections.git",
+                "reference": "1a4fb7e902202c33cce8c55989b945612943c2ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/1a4fb7e902202c33cce8c55989b945612943c2ba",
+                "reference": "1a4fb7e902202c33cce8c55989b945612943c2ba",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "~0.1@dev",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Collections\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Collections Abstraction library",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "array",
+                "collections",
+                "iterator"
+            ],
+            "time": "2017-01-03T10:49:41+00:00"
+        },
+        {
+            "name": "doctrine/common",
+            "version": "v2.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/common.git",
+                "reference": "930297026c8009a567ac051fd545bf6124150347"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/930297026c8009a567ac051fd545bf6124150347",
+                "reference": "930297026c8009a567ac051fd545bf6124150347",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "1.*",
+                "doctrine/cache": "1.*",
+                "doctrine/collections": "1.*",
+                "doctrine/inflector": "1.*",
+                "doctrine/lexer": "1.*",
+                "php": "~5.6|~7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.4.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\": "lib/Doctrine/Common"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Common Library for Doctrine projects",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "annotations",
+                "collections",
+                "eventmanager",
+                "persistence",
+                "spl"
+            ],
+            "time": "2017-01-13T14:02:13+00:00"
+        },
+        {
+            "name": "doctrine/dbal",
+            "version": "v2.5.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/dbal.git",
+                "reference": "7b9e911f9d8b30d43b96853dab26898c710d8f44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/7b9e911f9d8b30d43b96853dab26898c710d8f44",
+                "reference": "7b9e911f9d8b30d43b96853dab26898c710d8f44",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": ">=2.4,<2.8-dev",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "symfony/console": "2.*||^3.0"
+            },
+            "suggest": {
+                "symfony/console": "For helpful console commands such as SQL execution and import of files."
+            },
+            "bin": [
+                "bin/doctrine-dbal"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\DBAL\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "Database Abstraction Layer",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database",
+                "dbal",
+                "persistence",
+                "queryobject"
+            ],
+            "time": "2017-02-08T12:53:47+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -105,6 +712,60 @@
                 "string"
             ],
             "time": "2015-11-06T14:35:42+00:00"
+        },
+        {
+            "name": "doctrine/lexer",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/lexer.git",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Lexer\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "lexer",
+                "parser"
+            ],
+            "time": "2014-09-09T13:34:57+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -197,6 +858,63 @@
             "time": "2016-04-29T12:21:54+00:00"
         },
         {
+            "name": "imagine/imagine",
+            "version": "v0.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalanche123/Imagine.git",
+                "reference": "149041d2a1b517107bfe270ca2b1a17aa341715d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/149041d2a1b517107bfe270ca2b1a17aa341715d",
+                "reference": "149041d2a1b517107bfe270ca2b1a17aa341715d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "sami/sami": "dev-master"
+            },
+            "suggest": {
+                "ext-gd": "to use the GD implementation",
+                "ext-gmagick": "to use the Gmagick implementation",
+                "ext-imagick": "to use the Imagick implementation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Imagine": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP 5.3",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "time": "2015-09-19T16:54:05+00:00"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {
@@ -285,16 +1003,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.27",
+            "version": "v5.4.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "66f5e1b37cbd66e730ea18850ded6dc0ad570404"
+                "reference": "442511fc62121085d184355e4f964c88942bbecb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/66f5e1b37cbd66e730ea18850ded6dc0ad570404",
-                "reference": "66f5e1b37cbd66e730ea18850ded6dc0ad570404",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/442511fc62121085d184355e4f964c88942bbecb",
+                "reference": "442511fc62121085d184355e4f964c88942bbecb",
                 "shasum": ""
             },
             "require": {
@@ -410,7 +1128,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-06-15T19:08:25+00:00"
+            "time": "2017-06-30T13:43:07+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -474,6 +1192,60 @@
                 "psysh"
             ],
             "time": "2017-06-01T16:31:26+00:00"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v5.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "9b8f51e7a2368911c896f5d42757886bae0717b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/9b8f51e7a2368911c896f5d42757886bae0717b5",
+                "reference": "9b8f51e7a2368911c896f5d42757886bae0717b5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.4.*",
+                "illuminate/routing": "5.4.*",
+                "illuminate/session": "5.4.*",
+                "illuminate/support": "5.4.*",
+                "illuminate/view": "5.4.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "illuminate/database": "5.4.*",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "http://laravelcollective.com",
+            "time": "2017-05-22T06:35:07+00:00"
         },
         {
             "name": "league/flysystem",
@@ -735,16 +1507,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.0.5",
+            "version": "v3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "2b9e2f71b722f7c53918ab0c25f7646c2013f17d"
+                "reference": "0808939f81c1347a3c8a82a5925385a08074b0f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/2b9e2f71b722f7c53918ab0c25f7646c2013f17d",
-                "reference": "2b9e2f71b722f7c53918ab0c25f7646c2013f17d",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/0808939f81c1347a3c8a82a5925385a08074b0f1",
+                "reference": "0808939f81c1347a3c8a82a5925385a08074b0f1",
                 "shasum": ""
             },
             "require": {
@@ -782,7 +1554,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-03-05T18:23:57+00:00"
+            "time": "2017-06-28T20:53:48+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -1089,6 +1861,66 @@
             "time": "2017-05-01T15:54:03+00:00"
         },
         {
+            "name": "symfony/config",
+            "version": "v3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/config.git",
+                "reference": "35716d4904e0506a7a5a9bcf23f854aeb5719bca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/config/zipball/35716d4904e0506a7a5a9bcf23f854aeb5719bca",
+                "reference": "35716d4904e0506a7a5a9bcf23f854aeb5719bca",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/filesystem": "~2.8|~3.0"
+            },
+            "conflict": {
+                "symfony/dependency-injection": "<3.3"
+            },
+            "require-dev": {
+                "symfony/dependency-injection": "~3.3",
+                "symfony/yaml": "~3.0"
+            },
+            "suggest": {
+                "symfony/yaml": "To use the yaml reference dumper"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Config\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Config Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-06-02T18:07:20+00:00"
+        },
+        {
             "name": "symfony/console",
             "version": "v3.3.2",
             "source": {
@@ -1330,6 +2162,55 @@
             "time": "2017-06-04T18:15:29+00:00"
         },
         {
+            "name": "symfony/filesystem",
+            "version": "v3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "c709670bf64721202ddbe4162846f250735842c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/c709670bf64721202ddbe4162846f250735842c0",
+                "reference": "c709670bf64721202ddbe4162846f250735842c0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-05-28T14:08:56+00:00"
+        },
+        {
             "name": "symfony/finder",
             "version": "v3.3.2",
             "source": {
@@ -1516,6 +2397,139 @@
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
             "time": "2017-06-06T03:59:58+00:00"
+        },
+        {
+            "name": "symfony/intl",
+            "version": "v3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/intl.git",
+                "reference": "a310b29a794578f544305f4f48e3f6c7981b606c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/a310b29a794578f544305f4f48e3f6c7981b606c",
+                "reference": "a310b29a794578f544305f4f48e3f6c7981b606c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/polyfill-intl-icu": "~1.0"
+            },
+            "require-dev": {
+                "symfony/filesystem": "~2.8|~3.0"
+            },
+            "suggest": {
+                "ext-intl": "to use the component with locales other than \"en\""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Intl\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ],
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                },
+                {
+                    "name": "Eriksen Costa",
+                    "email": "eriksen.costa@infranology.com.br"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "A PHP replacement layer for the C intl extension that includes additional data from the ICU library.",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "i18n",
+                "icu",
+                "internationalization",
+                "intl",
+                "l10n",
+                "localization"
+            ],
+            "time": "2017-06-01T21:01:25+00:00"
+        },
+        {
+            "name": "symfony/polyfill-intl-icu",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-intl-icu.git",
+                "reference": "3191cbe0ce64987bd382daf6724af31c53daae01"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/3191cbe0ce64987bd382daf6724af31c53daae01",
+                "reference": "3191cbe0ce64987bd382daf6724af31c53daae01",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/intl": "~2.3|~3.0|~4.0"
+            },
+            "suggest": {
+                "ext-intl": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for intl's ICU-related data and classes",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "icu",
+                "intl",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2017-06-09T08:25:21+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1835,6 +2849,293 @@
                 "dump"
             ],
             "time": "2017-06-02T09:10:29+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "9752a30000a8ca9f4b34b5227d15d0101b96b063"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/9752a30000a8ca9f4b34b5227d15d0101b96b063",
+                "reference": "9752a30000a8ca9f4b34b5227d15d0101b96b063",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "symfony/console": "~2.8|~3.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-06-02T22:05:06+00:00"
+        },
+        {
+            "name": "terranet/localizer",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TerranetMD/localizer.git",
+                "reference": "df0e8b5df4034ff36001711280626b04b8d4607f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TerranetMD/localizer/zipball/df0e8b5df4034ff36001711280626b04b8d4607f",
+                "reference": "df0e8b5df4034ff36001711280626b04b8d4607f",
+                "shasum": ""
+            },
+            "require": {
+                "laravelcollective/html": "^5.1|^5.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Terranet\\Localizer": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "endi",
+                    "email": "endi1982@gmail.com"
+                }
+            ],
+            "description": "Localization package",
+            "keywords": [
+                "admin architect",
+                "laravel",
+                "laravel admin",
+                "laravel administration framework",
+                "laravel backend panel",
+                "laravel localization",
+                "laravel multilanguage"
+            ],
+            "time": "2017-04-13T05:11:07+00:00"
+        },
+        {
+            "name": "terranet/menus",
+            "version": "v2.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TerranetMD/menus.git",
+                "reference": "5db60490ea2e045d2b5ea707b25620980492e465"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TerranetMD/menus/zipball/5db60490ea2e045d2b5ea707b25620980492e465",
+                "reference": "5db60490ea2e045d2b5ea707b25620980492e465",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^5.1|^5.2",
+                "illuminate/support": "^5.1|^5.2",
+                "illuminate/view": "^5.1|^5.2",
+                "laravelcollective/html": "^5.1|^5.2",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pingpong\\Menus\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Pingpong Labs",
+                    "email": "pingpong.labs@gmail.com"
+                }
+            ],
+            "description": "Laravel Menus",
+            "keywords": [
+                "bootstrap",
+                "laravel",
+                "menus",
+                "nav",
+                "navigation",
+                "pingpong"
+            ],
+            "time": "2017-02-08T15:51:32+00:00"
+        },
+        {
+            "name": "terranet/php-humanizer",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TerranetMD/php-humanizer.git",
+                "reference": "617c733e13ffc0462b1e54440125a274c4e06f07"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TerranetMD/php-humanizer/zipball/617c733e13ffc0462b1e54440125a274c4e06f07",
+                "reference": "617c733e13ffc0462b1e54440125a274c4e06f07",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/config": "^2.3|^3.0",
+                "symfony/intl": "^2.3|^3.0",
+                "symfony/translation": "^2.3|^3.0",
+                "symfony/yaml": "^2.3|^3.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^2",
+                "phpunit/phpunit": "^4.5|^5.0",
+                "thunderer/shortcode": "~0.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "": "src",
+                    "Coduo\\PHPHumanizer\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Norbert Orzechowicz",
+                    "email": "norbert@orzechowicz.pl"
+                },
+                {
+                    "name": "Michał Dąbrowski",
+                    "email": "dabrowski@brillante.pl"
+                }
+            ],
+            "description": "Repository was forked from coduo/php-humanizer because of lack of support",
+            "keywords": [
+                "humanize",
+                "humanizer",
+                "php"
+            ],
+            "time": "2016-02-02T08:00:08+00:00"
+        },
+        {
+            "name": "terranet/presentable",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TerranetMD/presentable.git",
+                "reference": "827c357302476f322c5dff0b3cbe450c5c738ea1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TerranetMD/presentable/zipball/827c357302476f322c5dff0b3cbe450c5c738ea1",
+                "reference": "827c357302476f322c5dff0b3cbe450c5c738ea1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Terranet\\Presentable\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "endi",
+                    "email": "endi1982@gmail.com"
+                }
+            ],
+            "description": "Simple Object Presenter",
+            "time": "2016-08-26T11:16:26+00:00"
+        },
+        {
+            "name": "terranet/translatable",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TerranetMD/translatable.git",
+                "reference": "8babc3f30a653aca17e0c9bf86d879afaaa073f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TerranetMD/translatable/zipball/8babc3f30a653aca17e0c9bf86d879afaaa073f5",
+                "reference": "8babc3f30a653aca17e0c9bf86d879afaaa073f5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Terranet\\Translatable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel package for multilingual models",
+            "keywords": [
+                "admin architect",
+                "database",
+                "language",
+                "laravel",
+                "translation"
+            ],
+            "time": "2017-04-14T07:33:26+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -3254,61 +4555,6 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
-            "name": "symfony/yaml",
-            "version": "v3.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "9752a30000a8ca9f4b34b5227d15d0101b96b063"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/9752a30000a8ca9f4b34b5227d15d0101b96b063",
-                "reference": "9752a30000a8ca9f4b34b5227d15d0101b96b063",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "symfony/console": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/console": "For validating YAML files using the lint command"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Yaml Component",
-            "homepage": "https://symfony.com",
-            "time": "2017-06-02T22:05:06+00:00"
-        },
-        {
             "name": "webmozart/assert",
             "version": "1.2.0",
             "source": {
@@ -3361,7 +4607,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "adminarchitect/core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

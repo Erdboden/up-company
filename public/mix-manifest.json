@@ -1,4 +1,14 @@
 {
   "/js/app.js": "/js/app.js",
-  "/css/app.css": "/css/app.css"
+  "/css/app.css": "/css/app.css",
+  "/admin/editors/tinymce.js": "/admin/editors/tinymce.js",
+  "/admin/vendor.js": "/admin/vendor.js",
+  "/admin/app.css": "/admin/app.css",
+  "/admin/vendor.css": "/admin/vendor.css",
+  "/admin/glyphicons.css": "/admin/glyphicons.css",
+  "/admin/editors/medium.css": "/admin/editors/medium.css",
+  "/admin/editors/ckeditor.js": "/admin/editors/ckeditor.js",
+  "/admin/editors/medium.js": "/admin/editors/medium.js",
+  "/admin/app.js": "/admin/app.js",
+  "/admin/media.js": "/admin/media.js"
 }

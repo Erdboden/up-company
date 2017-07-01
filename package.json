@@ -18,5 +18,8 @@
     "lodash": "^4.17.4",
     "vue": "^2.1.10",
     "vue-textarea": "^1.0.0"
+  },
+  "dependencies": {
+    "adminarchitect-mix": "^1.0.4"
   }
 }
