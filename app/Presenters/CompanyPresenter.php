@@ -53,5 +53,14 @@ class CompanyPresenter extends Presenter
         return '<img src="' . $this->presentable->main_image_path . '"/>';
     }
 
+    public function adminDomain()
+    {
+        $myArray = array();
+        foreach ($this->domain as $domain) {
+            array_push( $myArray, $domain->name);
+        }
+        return $myArray = '1';
+    }
+
 
 }

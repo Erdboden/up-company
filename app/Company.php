@@ -31,8 +31,7 @@ class Company extends Model implements PresentableInterface
     }
 
     /**
-     * @widget
-     * @placement main-bottom
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function domain()
@@ -44,6 +43,7 @@ class Company extends Model implements PresentableInterface
      * Has Many Relationship
      *
      * @widget
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function portfolio()
     {

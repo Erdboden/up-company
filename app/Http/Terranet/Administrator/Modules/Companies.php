@@ -3,16 +3,14 @@
 namespace App\Http\Terranet\Administrator\Modules;
 
 use App\Domain;
-use App\Http\Terranet\Administrator\Widgets\CompanyPortfolio;
 use App\User;
-use Terranet\Administrator\Collection\Group;
-use Terranet\Administrator\Columns\Element;
 use Terranet\Administrator\Contracts\Module\Editable;
 use Terranet\Administrator\Contracts\Module\Exportable;
 use Terranet\Administrator\Contracts\Module\Filtrable;
 use Terranet\Administrator\Contracts\Module\Navigable;
 use Terranet\Administrator\Contracts\Module\Sortable;
 use Terranet\Administrator\Contracts\Module\Validable;
+use Terranet\Administrator\Filters\FilterElement;
 use Terranet\Administrator\Form\FormElement;
 use Terranet\Administrator\Form\Type\Select;
 use Terranet\Administrator\Form\Type\Tinymce;
@@ -49,7 +47,6 @@ class Companies extends Scaffolding implements Navigable, Filtrable, Editable, V
         $domains->setTitle('Domains');
         return $this->scaffoldForm()
             ->push($domains)
-
             ->update('user_id', function ($element) {
                 # Set a different input type
                 $element->setInput(
@@ -65,47 +62,44 @@ class Companies extends Scaffolding implements Navigable, Filtrable, Editable, V
                 $element->setInput(new Tinymce('slogan'));
             });
     }
-//    public function form()
-//    {
-//        return $this
-//            ->scaffoldForm()
-//            # Update existing column
-
-//    }
 
     public function columns()
     {
         return
-//            # preserve auto-discovered columns
             $this
                 ->scaffoldColumns()
-//                ->without('user_id')
-//                # Add a group of new elements
-////                ->group('Location', function (Group $group) {
-////                    # Note that .dot notation means relationship, like $post->meta->keywords
-////                    $group->push(new Element('country'));
-////                    $group->push(new Element('city'));
-////                    $group->push(new Element('street'));
-////                });
+                ->update('user_id', function($element){
+                    $element->setTitle('Owner');
+                })
 //                # Join existing elements to a group
-                ->join(['country', 'city', 'street'], 'location')
-                ->move('location', 'before:dates');
-//                ->update('location', function ($group) {
-//                    return $group->move('city', 'before:country');
-//                })
-//            ->push(new \Terranet\Administrator\Columns\Element('portfolio'));
-//
+                ->join(['user_id', 'country', 'city', 'street'], 'Info')
+                ->move('info', 'before:dates')
+                ->push(new \Terranet\Administrator\Columns\Element('domain'));
     }
 
-    public function widgets()
+    public function filters()
     {
-        $portfolio = app('scaffold.model');
-//
-            $this->scaffoldWidgets()
-                ->push($portfolio);
+        return $this
+            # Preserve auto-discovered filters
+            ->scaffoldFilters()
+            # let's filter our collection by user_id column
+            ->push(
+                FilterElement::select('user_id', [], $this->users())
+            )# optionaly for foreign columns we can define a custom query
+            ->update('user_id', function ($userId) {
+                $userId
+                    ->getInput()
+                    ->setQuery(function ($query, $value) {
+                        return $query->whereIn('user_id', [$value]);
+                    });
 
-
+                return $userId;
+            });
     }
 
+    protected function users()
+    {
+        return ['' => '--Any--'] + User::pluck('email', 'id')->toArray();
+    }
 
 }
