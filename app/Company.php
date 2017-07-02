@@ -4,26 +4,18 @@ namespace App;
 
 
 use App\Presenters\CompanyPresenter;
+use App\Traits\CompanyTrait;
 use Illuminate\Database\Eloquent\Model;
 use Terranet\Presentable\PresentableInterface;
 use Terranet\Presentable\PresentableTrait;
 
 class Company extends Model implements PresentableInterface
 {
-    use PresentableTrait;
+    use PresentableTrait, CompanyTrait;
     protected $guarded = [];
     protected $with = ['owner', 'domain', 'portfolio'];
     protected $fillable = ['name', 'slogan', 'main_image_path', 'user_id', 'country', 'city', 'street'];
     protected $presenter = CompanyPresenter::class;
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
-    public function path()
-    {
-        return "/companies/{$this->slug}";
-    }
 
     public function owner()
     {
