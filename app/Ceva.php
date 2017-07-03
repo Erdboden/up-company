@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TestWithPull extends Model
+class Ceva extends Model
 {
     //
 }
