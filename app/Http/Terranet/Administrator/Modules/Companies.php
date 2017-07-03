@@ -68,13 +68,14 @@ class Companies extends Scaffolding implements Navigable, Filtrable, Editable, V
         return
             $this
                 ->scaffoldColumns()
-                ->update('user_id', function($element){
+                ->update('user_id', function ($element) {
                     $element->setTitle('Owner');
                 })
 //                # Join existing elements to a group
                 ->join(['user_id', 'country', 'city', 'street'], 'Info')
                 ->move('info', 'before:dates')
-                ->push(new \Terranet\Administrator\Columns\Element('domain'));
+                ->push(new \Terranet\Administrator\Columns\Element('domain'))
+                ->push(new \Terranet\Administrator\Columns\Element('portfolio'));
     }
 
     public function filters()

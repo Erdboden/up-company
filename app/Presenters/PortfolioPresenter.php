@@ -15,13 +15,14 @@ class PortfolioPresenter extends Presenter
 {
     public function adminCompanyId()
     {
-        $company = $this->presentable->company;
-        return link_to_route('scaffold.view',
-            $this->presentable->company->name,
-            [
-                'module' => 'companies',
-                'id' => $company->id
-            ]);
+        if ($company = $this->presentable->company) {
+            return link_to_route('scaffold.view',
+                $company->name,
+                [
+                    'module' => 'companies',
+                    'id' => $company->id
+                ]);
+        }
     }
 
     public function adminImagePath()

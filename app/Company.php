@@ -17,6 +17,7 @@ class Company extends Model implements PresentableInterface
     protected $fillable = ['name', 'slogan', 'main_image_path', 'user_id', 'country', 'city', 'street'];
     protected $presenter = CompanyPresenter::class;
 
+
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id');

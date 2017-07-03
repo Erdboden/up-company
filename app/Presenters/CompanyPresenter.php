@@ -18,14 +18,14 @@ class CompanyPresenter extends Presenter
 
     public function adminUserId()
     {
-
-        $owner = $this->presentable->owner;
-        return link_to_route('scaffold.view',
-            $this->presentable->owner->name,
-            [
-                'module' => 'users',
-                'id' => $owner->id
-            ]);
+        if ($owner = $this->presentable->owner) {
+            return link_to_route('scaffold.view',
+                $owner->name,
+                [
+                    'module' => 'users',
+                    'id' => $owner->id
+                ]);
+        }
     }
 
     public function adminSlogan()
@@ -55,11 +55,14 @@ class CompanyPresenter extends Presenter
 
     public function adminDomain()
     {
-        $myArray = array();
-        foreach ($this->domain as $domain) {
-            array_push( $myArray, $domain->name);
-        }
-        return $myArray = '1';
+        $domains = $this->domain;
+        return view('admin.companies.company-domain', compact('domains'));
+    }
+
+    public function adminPortfolio()
+    {
+        $portfolio = $this->portfolio;
+        return view ('admin.companies.company-portfolio', compact('portfolio'));
     }
 
 
