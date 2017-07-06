@@ -15,7 +15,7 @@
                                         {{$company->name}}
                                     </a>
                                 </h4>
-                                <img src="{{$company->main_image_path}}">
+                                <img src="{{$company->photo->url('thumb')}}">
                             </div>
                         </div>
 

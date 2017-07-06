@@ -47,11 +47,11 @@ class CompanyPresenter extends Presenter
     {
         return label($this->presentable->street, 'label-primary');
     }
-
-    public function adminMainImagePath()
-    {
-        return '<img src="' . $this->presentable->main_image_path . '"/>';
-    }
+//
+//    public function adminMainImagePath()
+//    {
+//        return '<img src="' . $this->presentable->main_image_path . '"/>';
+//    }
 
     public function adminDomain()
     {

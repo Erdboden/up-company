@@ -1,7 +1,7 @@
 <ul>
     @foreach($domains as $domain)
         <li>
-            {{$domain->name}}
+            {{$domain->slug}}
         </li>
     @endforeach
 </ul>

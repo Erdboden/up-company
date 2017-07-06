@@ -55,8 +55,6 @@ class Portfolios extends Scaffolding implements Navigable, Filtrable, Editable, 
                 );
 
                 return $element;
-            })->update('body', function ($element) {
-                $element->setInput(new Tinymce('body'));
             });
     }
 }

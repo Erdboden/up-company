@@ -1,7 +1,10 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "repositories": [
@@ -15,7 +18,13 @@
         "fzaninotto/faker": "^1.6",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "adminarchitect/core": "dev-master"
+        "adminarchitect/core": "dev-master",
+        "codesleeve/laravel-stapler": "^1.0",
+        "terranet/localizer": "^1.0",
+        "terranet/presentable": "^1.0",
+        "terranet/translatable": "^1.2",
+        "adminarchitect/navigation": "^1.2",
+        "adminarchitect/options": "^1.2"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

@@ -14,6 +14,8 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\Role;
 use App\Score;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
@@ -23,14 +25,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10)
-//        'role_id' => function () {
-//            return Role::find(1);
-//        }
+
     ];
 });
 
 $factory->define(App\Company::class, function ($faker) {
     $companyName = $faker->word;
+    Storage::fake('photos');
     return [
         'name' => $companyName,
         'slug' => str_replace(' ', '-', $companyName),
@@ -38,7 +39,7 @@ $factory->define(App\Company::class, function ($faker) {
         'country' => $faker->country,
         'city' => $faker->city,
         'street' => $faker->streetAddress,
-        'main_image_path' => $faker->imageUrl($width = 100, $height = 100),
+        'main_image_path' => UploadedFile::fake()->image('photo.jpg'),
         'user_id' => function () {
             return factory('App\User')->create()->id;
         },

@@ -8,7 +8,7 @@
                             <span class="flex">
                         <h4 v-text="name"></h4>
                                 </span>
-                            <img :src="main_image_path">
+                            <img :src="photo">
                         </div>
                     </div>
                     <div class="panel-body" v-text="slogan"></div>
@@ -46,13 +46,13 @@
     import Portfolio from '../components/Portfolio.vue';
     import Reviews from '../components/Reviews.vue';
     export default{
-        props: ['data'],
+        props: ['data', 'image'],
         components: {Portfolio, Reviews},
         data(){
             return {
                 name: this.data.name,
                 slug: this.data.slug,
-                main_image_path: this.data.main_image_path,
+                photo: this.image,
                 slogan: this.data.slogan,
                 city: this.data.city,
                 country: this.data.country,

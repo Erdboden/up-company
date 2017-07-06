@@ -3,17 +3,32 @@
 namespace App;
 
 use App\Presenters\PortfolioPresenter;
+use App\Traits\Models\ConflictTrait;
+use Codesleeve\Stapler\ORM\StaplerableInterface;
 use Illuminate\Database\Eloquent\Model;
 use Terranet\Presentable\PresentableInterface;
 use Terranet\Presentable\PresentableTrait;
+use Terranet\Translatable\Translatable;
 
-class Portfolio extends Model implements PresentableInterface
+class Portfolio extends Model implements PresentableInterface, Translatable, StaplerableInterface
 {
-    use PresentableTrait;
+    use PresentableTrait, ConflictTrait;
 
     protected $guarded = [];
-    protected $fillable = ['company_id', 'title', 'image_path','body'];
+    protected $fillable = ['company_id', 'photo'];
+    protected $translatedAttributes = ['title', 'body'];
     protected $presenter = PortfolioPresenter::class;
+
+    public function __construct(array $attributes = array())
+    {
+        $this->hasAttachedFile('photo', [
+            'styles' => [
+                'medium' => '300x300',
+            ],
+        ]);
+
+        parent::__construct($attributes);
+    }
 
     public function company()
     {

@@ -10,5 +10,6 @@
   "/admin/editors/ckeditor.js": "/admin/editors/ckeditor.js",
   "/admin/editors/medium.js": "/admin/editors/medium.js",
   "/admin/app.js": "/admin/app.js",
-  "/admin/media.js": "/admin/media.js"
+  "/admin/media.js": "/admin/media.js",
+  "/mix.js": "/mix.js"
 }

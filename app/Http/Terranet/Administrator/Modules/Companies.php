@@ -3,6 +3,7 @@
 namespace App\Http\Terranet\Administrator\Modules;
 
 use App\Domain;
+use App\DomainTranslation;
 use App\User;
 use Terranet\Administrator\Contracts\Module\Editable;
 use Terranet\Administrator\Contracts\Module\Exportable;
@@ -38,13 +39,21 @@ class Companies extends Scaffolding implements Navigable, Filtrable, Editable, V
      */
     protected $model = 'App\\Company';
 
+//    public function inputTypes()
+//    {
+//        return [
+//            'slogan' => 'medium',
+//        ];
+//    }
+
     public function form()
     {
         $domains = FormElement::multiCheckbox('domain.domain_id');
         $domains->getInput()->setOptions(
-            Domain::pluck('name', 'id')->toArray()
+            Domain::pluck('slug', 'id')->toArray()
         );
         $domains->setTitle('Domains');
+
         return $this->scaffoldForm()
             ->push($domains)
             ->update('user_id', function ($element) {
@@ -56,10 +65,9 @@ class Companies extends Scaffolding implements Navigable, Filtrable, Editable, V
                 $element->getInput()->setOptions(
                     User::pluck('email', 'id')->toArray()
                 );
+
                 return $element;
 
-            })->update('slogan', function ($element) {
-                $element->setInput(new Tinymce('slogan'));
             });
     }
 

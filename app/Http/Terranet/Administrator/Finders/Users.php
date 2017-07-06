@@ -30,9 +30,4 @@ class Users extends Finder
         return $this->model;
     }
 
-//    public function getQuery()
-//    {
-//        return parent::getQuery()
-//            ->with('roles');
-//    }
 }

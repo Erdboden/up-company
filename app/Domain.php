@@ -3,11 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Terranet\Translatable\HasTranslations;
+use Terranet\Translatable\Translatable;
 
-class Domain extends Model
+class Domain extends Model implements Translatable
 {
+    use HasTranslations;
     protected $guarded = [];
-    protected $fillable = ['name'];
+    protected $translatedAttributes = ['name'];
+    protected $hidden = ['slug'];
 
     public function getRouteKeyName()
     {

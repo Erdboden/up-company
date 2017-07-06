@@ -15,15 +15,13 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 50)->unique();
-            $table->string('slug', 50);
-            $table->text('slogan');
-            $table->string('main_image_path');
+            $table->string('photo')->nullable();
             $table->unsignedInteger('user_id');
-//            $table->unsignedInteger('domain_id');
+            $table->string('slug', 50)->nullable();
             $table->string('country', 100);
             $table->string('city');
             $table->string('street');
+            $table->string('name', 50)->unique();
             $table->timestamps();
         });
     }
