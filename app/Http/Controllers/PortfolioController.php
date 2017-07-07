@@ -15,7 +15,8 @@ class PortfolioController extends Controller
 
     public function index(Company $company)
     {
-        return $company->portfolio()->get();
+//        return $company->portfolio()->get();
+        return $company->portfolio()->paginate(6);
     }
 
     public function store($companySlug)

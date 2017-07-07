@@ -3,7 +3,6 @@
 namespace App\Http\Terranet\Administrator\Modules;
 
 use App\Company;
-use App\User;
 use Terranet\Administrator\Contracts\Module\Editable;
 use Terranet\Administrator\Contracts\Module\Exportable;
 use Terranet\Administrator\Contracts\Module\Filtrable;
@@ -11,7 +10,6 @@ use Terranet\Administrator\Contracts\Module\Navigable;
 use Terranet\Administrator\Contracts\Module\Sortable;
 use Terranet\Administrator\Contracts\Module\Validable;
 use Terranet\Administrator\Form\Type\Select;
-use Terranet\Administrator\Form\Type\Tinymce;
 use Terranet\Administrator\Scaffolding;
 use Terranet\Administrator\Traits\Module\AllowFormats;
 use Terranet\Administrator\Traits\Module\AllowsNavigation;
@@ -21,11 +19,11 @@ use Terranet\Administrator\Traits\Module\HasSortable;
 use Terranet\Administrator\Traits\Module\ValidatesForm;
 
 /**
- * Administrator Resource Portfolios
+ * Administrator Resource Reviews
  *
  * @package Terranet\Administrator
  */
-class Portfolios extends Scaffolding implements Navigable, Filtrable, Editable, Validable, Sortable, Exportable
+class Reviews extends Scaffolding implements Navigable, Filtrable, Editable, Validable, Sortable, Exportable
 {
     use HasFilters, HasForm, HasSortable, ValidatesForm, AllowFormats, AllowsNavigation;
 
@@ -34,8 +32,7 @@ class Portfolios extends Scaffolding implements Navigable, Filtrable, Editable, 
      *
      * @var string
      */
-    protected $model = 'App\\Portfolio';
-
+    protected $model = 'App\\Review';
 
     public function form()
     {
@@ -56,13 +53,18 @@ class Portfolios extends Scaffolding implements Navigable, Filtrable, Editable, 
 
                 return $element;
             });
+//            ->update('score_id', function ($element) {
+//                # Set a different input type
+//                $element->setInput(
+//                    new Select('score_id')
+//                );
+//
+//                # set dropdown options
+//                $element->getInput()->setOptions(
+//                    Company::pluck('score_number', 'id')->toArray()
+//                );
+//
+//                return $element;
+//            });
     }
-
-//    public function rules()
-//    {
-////        if ($my_model->photo->originalFilename() !== null)
-//        return array_merge($this->scaffoldRules(), [
-//            'photo' => 'required',
-//        ]);
-//    }
 }

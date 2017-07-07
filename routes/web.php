@@ -36,6 +36,8 @@ Route::post('companies/{company}/portfolio', 'PortfolioController@store');
 Route::patch('companies/{company}/portfolio/{portfolio}', 'PortfolioController@update');
 Route::delete('companies/{company}/portfolio/{portfolio}', 'PortfolioController@destroy');
 
+Route::get('companies/{company}/reviews', 'ReviewsController@index');
+
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
 
 

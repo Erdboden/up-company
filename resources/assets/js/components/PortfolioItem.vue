@@ -18,7 +18,7 @@
                 id: this.data.id,
                 title: this.data.title,
                 body: this.data.body,
-                image: this.data.image_path
+                image: ""
             };
         },
         methods:{

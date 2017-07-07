@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/my-styles.css') }}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
 
     <!-- Scripts -->
@@ -23,38 +24,6 @@
         ]) !!};
     </script>
 
-    <style>
-        body {
-            padding-bottom: 100px;
-        }
-
-        .level {
-            display: flex;
-            align-items: center;
-        }
-
-        .center {
-            display: flex;
-            flex-direction: row; /* make main axis horizontal (default setting) */
-            justify-content: center; /* center items horizontally, in this case */
-            align-items: center; /* center items vertically, in this case */
-            /*height: 300px;*/
-        }
-
-        .flex {
-            flex: 1;
-        }
-
-        .mr-1 {
-            margin-right: 1em;
-        }
-
-        .company-details {
-            position: fixed;
-            right: 25px;
-            bottom: 25px;
-        }
-    </style>
 </head>
 <body>
 <div id="app">

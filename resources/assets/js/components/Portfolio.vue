@@ -11,6 +11,7 @@
                 <portfolio-item :data="portfolioItem" @show="showDetails(portfolioItem)"></portfolio-item>
             </div>
         </div>
+        <paginator :dataSet="dataSet" @changed="fetch"></paginator>
     </div>
 </template>
 <script>
@@ -29,9 +30,10 @@
 
         data(){
             return {
-                companySlug : this.data,
+                companySlug: this.data,
                 showPortfolioDetails: false,
-                portfolioDetails: ''
+                portfolioDetails: '',
+                dataSet: false
             }
         },
         watch: {
@@ -41,17 +43,25 @@
             }
         },
         methods: {
-            fetch(){
-
-                axios.get(this.url())
-                    .then(this.refresh);
+            fetch(page) {
+                axios.get(this.url(page)).then(this.refresh);
             },
-            refresh({data}){
-                this.items = data;
 
+            url(page) {
+                if (!page) {
+                    let query = location.search.match(/page=(\d+)/);
+
+                    page = query ? query[1] : 1;
+                }
+
+                return `/companies/${this.companySlug}/portfolio?page=${page}`;
             },
-            url(){
-                return `/companies/${this.companySlug}/portfolio`;
+
+            refresh({data}) {
+                this.dataSet = data;
+                this.items = data.data;
+
+//                window.scrollTo(0, 0);
             },
             showDetails(portfolioItem){
                 this.portfolioDetails = portfolioItem;

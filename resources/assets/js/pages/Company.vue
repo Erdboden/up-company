@@ -17,7 +17,9 @@
                         <portfolio :data="slug"></portfolio>
                     </div>
                     <hr>
-                    <reviews></reviews>
+                    <div class="panel-body">
+                    <reviews :data="slug"></reviews>
+                    </div>
                 </div>
             </div>
             <div class="col-md-2 company-details">

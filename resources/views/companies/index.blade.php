@@ -14,6 +14,8 @@
                                     <a href="{{$company->path()}}">
                                         {{$company->name}}
                                     </a>
+                                    <hr>
+                                    Reviews score: {{$company->getTotalScore()}}
                                 </h4>
                                 <img src="{{$company->photo->url('thumb')}}">
                             </div>
@@ -26,7 +28,10 @@
                                     <li>Origin: <b>{{$company->city}}, {{$company->country}}, {{$company->street}}</b>
                                     </li>
                                     <li>Owner:<b> {{$company->owner->name}}</b></li>
-                                    <li>Area of activity: <ul>@foreach($company->domain as $domain)<li><b>{{$domain->name}}</b></li>@endforeach</ul></li>
+                                    <li>Area of activity:
+                                        <ul>@foreach($company->domain as $domain)
+                                                <li><b>{{$domain->name}}</b></li>@endforeach</ul>
+                                    </li>
                                 </ul>
                             </div>
                             <hr>
