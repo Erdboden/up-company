@@ -10,8 +10,10 @@ class Companies extends Saver
     {
         # preserve parent functionality
         $company       = parent::sync();
-        $company->slug = str_replace(' ', '-', $company->name);
+        $slug          = str_replace(' ', '-', $company->name);
+        $company->slug = strtolower($slug);
         $company->save();
+
         return $company;
     }
 }

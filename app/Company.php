@@ -21,6 +21,7 @@ class Company extends Model implements PresentableInterface, Translatable, Stapl
     protected $translatedAttributes = ['slogan'];
     protected $presenter = CompanyPresenter::class;
 
+
     public function __construct(array $attributes = array())
     {
         $this->hasAttachedFile('photo', [
@@ -58,9 +59,27 @@ class Company extends Model implements PresentableInterface, Translatable, Stapl
         return $this->hasMany(Portfolio::class);
     }
 
+    /**
+     * Has Many Relationship
+     *
+     * @widget
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function getTotalScore()
+    {
+        $score = 0;
+        foreach ($this->reviews as $review) {
+//            dd($review);
+            $score += $review->score->score_number;
+        }
+//        dd($score);
+
+        return $score / $this->reviews->count();
     }
 
 }
