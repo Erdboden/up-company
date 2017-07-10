@@ -22,6 +22,7 @@ class CreateCompaniesTable extends Migration
             $table->string('city');
             $table->string('street');
             $table->string('name', 50)->unique();
+            $table->boolean('approved')->default(false);
             $table->timestamps();
         });
     }
