@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\Domain;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class CompaniesController extends Controller
 {
