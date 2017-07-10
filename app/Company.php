@@ -72,12 +72,17 @@ class Company extends Model implements PresentableInterface, Translatable, Stapl
 
     public function getTotalScore()
     {
-        $score = 0;
-        foreach ($this->reviews as $review) {
-            $score += $review->score->score_number;
+
+        if ($this->reviews->count() > 0) {
+            $score = 0;
+            foreach ($this->reviews as $review) {
+                $score += $review->score->score_number;
+            }
+
+            return $score / $this->reviews->count();
+
+        } else {
+            return 0;
         }
-
-        return $score / $this->reviews->count();
     }
-
 }

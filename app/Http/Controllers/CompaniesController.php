@@ -6,6 +6,7 @@ use App\Company;
 use App\Domain;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Input;
 
 class CompaniesController extends Controller
 {
@@ -43,25 +44,28 @@ class CompaniesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'country' => 'required',
-            'city' => 'required',
-            'street' => 'required',
+            'name'      => 'required',
+            'country'   => 'required',
+            'city'      => 'required',
+            'street'    => 'required',
             'domain_id' => 'required|exists:domains,id'
         ]);
 
-        $company = Company::create([
-            'name' => request('name'),
-            'slug' => str_replace(' ', '-', request('name')),
-            'country' => request('country'),
-            'city' => request('city'),
-            'street' => request('street'),
-            'slogan' => request('slogan'),
-            'user_id' => auth()->id(),
-//            'domain_id' => request('domain_id'),
-            'main_image_path' => request('main_image_path') ?: 'http://lorempixel.com/100/100/'
-        ]);
+//        $company = Company::create([
+//            'name' => request('name'),
+//            'slug' => str_replace(' ', '-', request('name')),
+//            'country' => request('country'),
+//            'city' => request('city'),
+//            'street' => request('street'),
+//            'slogan' => request('slogan'),
+//            'user_id' => auth()->id(),
+//        ]);
+        $company = Company::create(Input::all());
         $company->domain()->attach(request('domain_id'));
+
+//        $company->photo = Input::file('photo');
+        $company->save();
+
         return redirect($company->path());
     }
 
@@ -72,6 +76,7 @@ class CompaniesController extends Controller
         if (request()->expectsJson()) {
             return response(['status' => 'company deleted']);
         }
+
         return back();
     }
 
@@ -80,22 +85,22 @@ class CompaniesController extends Controller
         $this->authorize('update', $company);
 
         $this->validate(request(), [
-            'name' => 'required',
+            'name'    => 'required',
             'country' => 'required',
-            'city' => 'required',
-            'street' => 'required',
-            'slogan' => 'required'
+            'city'    => 'required',
+            'street'  => 'required',
+            'slogan'  => 'required'
         ]);
 
 
         $company->update([
-            'name' => request('name'),
-            'slug' => request('slug'),
-            'country' => request('country'),
-            'city' => request('city'),
-            'street' => request('street'),
+            'name'            => request('name'),
+            'slug'            => request('slug'),
+            'country'         => request('country'),
+            'city'            => request('city'),
+            'street'          => request('street'),
             'main_image_path' => request('image') ?: 'http://lorempixel.com/100/100/',
-            'slogan' => request('slogan'),
+            'slogan'          => request('slogan'),
         ]);
         $company->domain()->attach(request('selectedDomain'));
     }
@@ -103,6 +108,7 @@ class CompaniesController extends Controller
     public function destroyDomain(Company $company)
     {
         $this->authorize('update', $company);
+
         return $company->domain()->detach(request('domain'));
 
     }
@@ -113,6 +119,7 @@ class CompaniesController extends Controller
         $companies = Company::latest();
         if ($domain->exists) {
             $companies = $domain->companies;
+
             return $companies;
         }
 

@@ -52,9 +52,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="main_image_path">Image (link):</label>
-                                <input type="text" class="form-control" id="main_image_path" name="main_image_path"
-                                       value="{{old('main_image_path')}}" required>
+                                <label for="photo">Image (link):</label>
+                                <input type="file" class="form-control" id="photo" name="photo"
+                                       value="{{old('photo')}}" required>
+<!--                                --><?//= Form::file('photo') ?>
                             </div>
 
                             <div class="form-group">
