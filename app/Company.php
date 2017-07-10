@@ -17,7 +17,7 @@ class Company extends Model implements PresentableInterface, Translatable, Stapl
     use PresentableTrait, CompanyTrait, ConflictTrait;
     protected $guarded = [];
     protected $with = ['owner', 'domain', 'portfolio'];
-    protected $fillable = ['name', 'photo', 'user_id', 'country', 'city', 'street'];
+    protected $fillable = ['name', 'photo', 'user_id', 'country', 'city', 'street', 'approved'];
     protected $translatedAttributes = ['slogan'];
     protected $presenter = CompanyPresenter::class;
 
@@ -74,10 +74,8 @@ class Company extends Model implements PresentableInterface, Translatable, Stapl
     {
         $score = 0;
         foreach ($this->reviews as $review) {
-//            dd($review);
             $score += $review->score->score_number;
         }
-//        dd($score);
 
         return $score / $this->reviews->count();
     }

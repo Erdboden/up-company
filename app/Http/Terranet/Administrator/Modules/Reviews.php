@@ -40,6 +40,19 @@ class Reviews extends Scaffolding implements Navigable, Filtrable, Editable, Val
 
         return $this
             ->scaffoldForm()
+            ->update('score_id', function ($element) {
+                # Set a different input type
+                $element->setInput(
+                    new Select('score_id')
+                );
+
+                # set dropdown options
+                $element->getInput()->setOptions(
+                    Company::pluck('score_number', 'id')->toArray()
+                );
+
+                return $element;
+            })
             # Update existing column
             ->update('company_id', function ($element) {
                 # Set a different input type
