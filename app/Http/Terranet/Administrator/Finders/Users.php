@@ -25,6 +25,7 @@ class Users extends Finder
      */
     public function find($id, $columns = ['*'])
     {
+
         $this->model = $this->model->newQueryWithoutScopes()->findOrFail($id, $columns);
 
         return $this->model;

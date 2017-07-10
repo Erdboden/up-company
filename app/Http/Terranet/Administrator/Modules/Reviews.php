@@ -9,6 +9,7 @@ use Terranet\Administrator\Contracts\Module\Filtrable;
 use Terranet\Administrator\Contracts\Module\Navigable;
 use Terranet\Administrator\Contracts\Module\Sortable;
 use Terranet\Administrator\Contracts\Module\Validable;
+use Terranet\Administrator\Filters\FilterElement;
 use Terranet\Administrator\Form\Type\Select;
 use Terranet\Administrator\Scaffolding;
 use Terranet\Administrator\Traits\Module\AllowFormats;
@@ -53,18 +54,16 @@ class Reviews extends Scaffolding implements Navigable, Filtrable, Editable, Val
 
                 return $element;
             });
-//            ->update('score_id', function ($element) {
-//                # Set a different input type
-//                $element->setInput(
-//                    new Select('score_id')
-//                );
-//
-//                # set dropdown options
-//                $element->getInput()->setOptions(
-//                    Company::pluck('score_number', 'id')->toArray()
-//                );
-//
-//                return $element;
-//            });
+    }
+
+    public function filters()
+    {
+        return $this
+            # Preserve auto-discovered filters
+            ->scaffoldFilters()
+            # let's filter our collection by user_id column
+            ->push(
+                FilterElement::text('body')
+            );
     }
 }

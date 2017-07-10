@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Language
+Route::get('language/{lang}', 'LanguageController')
+    ->where('lang', implode('|', config('app.languages')));
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
