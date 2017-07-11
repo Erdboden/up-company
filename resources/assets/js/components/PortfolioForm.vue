@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <form method="POST" action="/portfolio" @submit.prevent="onSubmit"
-              @keydown="form.errors.clear($event.target.name)">
+              @keydown="form.errors.clear($event.target.name)" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Title:</label>
                 <input type="text" name="title" class="form-control" v-model="form.title" required>
@@ -11,7 +11,10 @@
 
             <div class="form-group">
                 <label>Image:</label>
-                <input type="text" name="image" class="form-control" v-model="form.image" required>
+                <div class="col-md-2">
+                    <img :src="form.photo" class="img-responsive">
+                </div>
+                <input type="file" name="photo" v-on:change="onFileChange">
             </div>
 
             <div class="form-group">
@@ -46,7 +49,7 @@
                 form: new Form({
                     id: this.data.id,
                     title: this.data.title,
-                    image: this.data.image_path,
+                    photo: '',
                     body: this.data.body,
                     company: this.companySlug,
                 }),
@@ -57,7 +60,7 @@
             data: function () {
                 this.id = this.data.id,
                     this.title = this.data.title,
-                    this.image = this.data.image_path,
+                    this.photo = '',
                     this.body = this.data.body,
                     this.company = this.companySlug,
                     this.formMethod = this.method
@@ -65,6 +68,20 @@
             }
         },
         methods: {
+            onFileChange(e) {
+                let files = e.target.files || e.dataTransfer.files;
+                if (!files.length)
+                    return;
+                this.createImage(files[0]);
+            },
+            createImage(file) {
+                let reader = new FileReader();
+                let vm = this;
+                reader.onload = (e) => {
+                    vm.form.photo = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            },
             onUpdate() {
                 this.form.patch('/companies/' + this.form.company + '/portfolio/' + this.form.id)
                     .then(response => {

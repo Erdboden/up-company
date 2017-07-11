@@ -26,9 +26,9 @@ class PortfolioController extends Controller
             'body' => 'required',
         ]);
         $company = Company::where('slug', $companySlug)->first();
-        Portfolio::create([
+        $portfolio = Portfolio::create([
             'title' => request('title'),
-            'image_path' => request('image'),
+            'photo'   => request('photo'),
             'body' => request('body'),
             'company_id' => $company->id
         ]);
@@ -43,7 +43,7 @@ class PortfolioController extends Controller
 
         $portfolio->update([
             'title' => request('title'),
-            'image_path' => request('image'),
+            'photo'   => request('photo'),
             'body' => request('body'),
         ]);
 

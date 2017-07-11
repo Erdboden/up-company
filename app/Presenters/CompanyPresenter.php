@@ -59,6 +59,14 @@ class CompanyPresenter extends Presenter
         return view('admin.companies.company-domain', compact('domains'));
     }
 
+    public function adminDeleteRequest()
+    {
+        if($this->presentable->delete_request)
+        return label('Requested for deletion', 'label-danger');
+        else
+            return;
+    }
+
     public function adminPortfolio()
     {
         $portfolio = $this->portfolio;

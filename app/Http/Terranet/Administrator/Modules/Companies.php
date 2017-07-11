@@ -83,7 +83,9 @@ class Companies extends Scaffolding implements Navigable, Filtrable, Editable, V
                 ->join(['user_id', 'country', 'city', 'street'], 'Info')
                 ->move('info', 'before:dates')
                 ->push(new \Terranet\Administrator\Columns\Element('domain'))
-                ->push(new \Terranet\Administrator\Columns\Element('portfolio'));
+                ->push(new \Terranet\Administrator\Columns\Element('portfolio'))
+                ->push(new \Terranet\Administrator\Columns\Element('delete_request'))
+                ->join(['approved', 'delete_request'], 'Requests');
     }
 
     public function filters()
@@ -110,8 +112,6 @@ class Companies extends Scaffolding implements Navigable, Filtrable, Editable, V
     {
         return ['' => '--Any--'] + User::pluck('email', 'id')->toArray();
     }
-
-
 
 
 }
