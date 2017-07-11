@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
 
-                        <form action="/companies" method="POST">
+                        <form action="/companies" method="POST" enctype="multipart/form-data">
                             {{csrf_field()}}
 
 
@@ -52,10 +52,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="photo">Image (link):</label>
-                                <input type="file" class="form-control" id="photo" name="photo"
-                                       value="{{old('photo')}}" required>
-<!--                                --><?//= Form::file('photo') ?>
+                                <label for="photo">Image:</label>
+                                <input type="file" id="photo" name="photo" required>
+
                             </div>
 
                             <div class="form-group">

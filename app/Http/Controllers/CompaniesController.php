@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\Domain;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Input;
 
 class CompaniesController extends Controller
 {
@@ -33,7 +31,11 @@ class CompaniesController extends Controller
 
     public function show(Company $company)
     {
-        return view('companies.show', compact('company'));
+        if ($company->approved == true) {
+            return view('companies.show', compact('company'));
+        }else{
+            return back();
+        }
     }
 
     public function create()
@@ -50,20 +52,17 @@ class CompaniesController extends Controller
             'street'    => 'required',
             'domain_id' => 'required|exists:domains,id'
         ]);
-
-//        $company = Company::create([
-//            'name' => request('name'),
-//            'slug' => str_replace(' ', '-', request('name')),
-//            'country' => request('country'),
-//            'city' => request('city'),
-//            'street' => request('street'),
-//            'slogan' => request('slogan'),
-//            'user_id' => auth()->id(),
-//        ]);
-        $company = Company::create(Input::all());
+        $company       = Company::create([
+            'photo'   => request('photo'),
+            'name'    => request('name'),
+            'country' => request('country'),
+            'city'    => request('city'),
+            'street'  => request('street'),
+            'slogan'  => request('slogan'),
+            'user_id' => auth()->id(),
+        ]);
+        $company->slug = str_replace(' ', '-', request('name'));
         $company->domain()->attach(request('domain_id'));
-
-//        $company->photo = Input::file('photo');
         $company->save();
 
         return redirect($company->path());
@@ -72,9 +71,10 @@ class CompaniesController extends Controller
     public function destroy(Company $company)
     {
         $this->authorize('update', $company);
-        $company->delete();
+        $company->delete_request=true;
+        $company->save();
         if (request()->expectsJson()) {
-            return response(['status' => 'company deleted']);
+            return response(['status' => 'request for deletion sent']);
         }
 
         return back();
@@ -116,7 +116,7 @@ class CompaniesController extends Controller
     protected function getCompanies(Domain $domain)
     {
 
-        $companies = Company::latest();
+        $companies = Company::where('approved', true)->latest();
         if ($domain->exists) {
             $companies = $domain->companies;
 

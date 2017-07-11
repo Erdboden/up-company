@@ -17,6 +17,7 @@ class CreatePortfoliosTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('company_id');
             $table->string('photo')->nullable();
+            $table->boolean('approved')->default(false);
             $table->timestamps();
         });
     }

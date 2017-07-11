@@ -15,7 +15,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password'
+        'name',
+        'email',
+        'password'
     ];
 
     /**
@@ -24,7 +26,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'role_id'
+        'password',
+        'remember_token',
+        'role_id'
     ];
 
     public function getRouteKeyName()
@@ -39,7 +43,7 @@ class User extends Authenticatable
 
     public function getUserCompaniesAttribute()
     {
-        return $this->companies()->where('user_id', $this->id)->get();
+        return $this->companies()->where('user_id', $this->id)->where('approved', true)->get();
     }
 
     /**
@@ -58,6 +62,7 @@ class User extends Authenticatable
                 return true;
             }
         }
+
         return false;
     }
 

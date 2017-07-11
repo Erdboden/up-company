@@ -15,7 +15,7 @@ class Portfolio extends Model implements PresentableInterface, Translatable, Sta
     use PresentableTrait, ConflictTrait;
 
     protected $guarded = [];
-    protected $fillable = ['company_id', 'photo'];
+    protected $fillable = ['company_id', 'photo', 'approved'];
     protected $translatedAttributes = ['title', 'body'];
     protected $presenter = PortfolioPresenter::class;
 
@@ -23,6 +23,7 @@ class Portfolio extends Model implements PresentableInterface, Translatable, Sta
     {
         $this->hasAttachedFile('photo', [
             'styles' => [
+                'thumb'  => '100x100',
                 'medium' => '300x300',
             ],
         ]);

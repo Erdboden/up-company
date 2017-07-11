@@ -69,7 +69,6 @@ class Company extends Model implements PresentableInterface, Translatable, Stapl
     {
         return $this->hasMany(Review::class);
     }
-
     public function getTotalScore()
     {
 
